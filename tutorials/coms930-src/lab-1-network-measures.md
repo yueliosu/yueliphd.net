@@ -1,5 +1,5 @@
 ---
-title: "Lab 1: Descriptive network measures"
+title: "Descriptive network measures"
 subtitle: "Network analysis in R"
 description: "Degree, in- and out-degree, closeness, betweenness and eigenvector centrality in an international diplomacy network, and how the measures correlate."
 ---

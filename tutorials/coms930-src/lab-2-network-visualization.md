@@ -1,5 +1,5 @@
 ---
-title: "Lab 2: Network visualization"
+title: "Network visualization"
 subtitle: "Network analysis in R"
 description: "Visualizing networks for readers who don't know the data, using prisoner friendship, needle-sharing and other networks."
 ---

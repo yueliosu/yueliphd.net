@@ -10,13 +10,13 @@ Every tutorial can be read here with its code and output. Download the R Markdow
 ## Network analysis in R
 
 ::: {.tut-item}
-[Lab 1: Descriptive network measures](lab-1-network-measures.md){.tut-title}\
+[Descriptive network measures](lab-1-network-measures.md){.tut-title}\
 Degree, in- and out-degree, closeness, betweenness and eigenvector centrality in an international diplomacy network, and how the measures correlate.\
 [R · igraph · centrality]{.tut-meta}
 :::
 
 ::: {.tut-item}
-[Lab 2: Network visualization](lab-2-network-visualization.md){.tut-title}\
+[Network visualization](lab-2-network-visualization.md){.tut-title}\
 Visualizing networks for readers who don't know the data, using prisoner friendship, needle-sharing and other networks.\
 [R · igraph · visualization]{.tut-meta}
 :::
