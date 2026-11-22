@@ -105,6 +105,7 @@ th{text-align:start;font-size:14px;font-weight:500;color:var(--muted);padding:0 
 td{padding:12px 16px 12px 0;border-bottom:1px solid var(--rule);vertical-align:top}
 td:first-child{white-space:nowrap;font-weight:600}
 td.term{white-space:nowrap}
+.tutorials{display:flex;flex-wrap:wrap;align-items:center;gap:16px 32px}.tutorials p{margin:0;max-width:62ch}
 .quotes{columns:2 300px;column-gap:48px;margin-top:8px}
 blockquote{break-inside:avoid;margin:0 0 30px;color:#e3edf7}
 blockquote::before{content:"\201C";display:block;font-size:48px;line-height:.7;color:var(--pink);height:22px}
@@ -280,18 +281,25 @@ blockquote::before{content:"\201C";display:block;font-size:48px;line-height:.7;c
       <figure class="photo"><img src="images/class-undergrads.jpg" alt="Yue Li with a group of undergraduate students in a classroom" width="1600" height="900" loading="lazy"><figcaption>With my undergraduate students</figcaption></figure>
     </div>
 
+    <h3>Tutorials</h3>
+    <div class="tutorials">
+      <p>Hands-on labs and notebooks from COMS 930 Computational Research Methods: measuring and visualizing networks in R, and analyzing images and text with machine learning in Python (visual features, DeepFace, BERT).</p>
+      <a class="btn" href="tutorials/coms930/index.html">Browse the COMS 930 tutorials</a>
+    </div>
+
     <h3>Courses taught as instructor of record</h3>
     <div class="scroll">
     <table class="stack">
-      <thead><tr><th>Course</th><th>Title</th><th>Term</th><th>Institution</th><th>Syllabus</th></tr></thead>
+      <thead><tr><th>Course</th><th>Title</th><th>Term</th><th>Institution</th><th>Materials</th></tr></thead>
       <tbody>
+        <tr><td>COMS 930</td><td>Computational Research Methods</td><td class="term">Spring 2026</td><td>University of Kansas</td><td><a href="tutorials/coms930/index.html">Tutorials</a></td></tr>
         <tr><td>COMS 320</td><td>Communication and New Media</td><td class="term">Fall 2024</td><td>University of Kansas</td><td></td></tr>
-        <tr><td>COMM 3558</td><td>Social Media</td><td class="term">Summer 2023</td><td>Ohio State</td><td><a href="files/syllabus-COMM3558.pdf">PDF</a></td></tr>
-        <tr><td>COMM 3628</td><td>Contemporary Persuasion Theories</td><td class="term">Autumn 2022</td><td>Ohio State</td><td><a href="files/syllabus-COMM3628.pdf">PDF</a></td></tr>
-        <tr><td>COMM 2367</td><td>Persuasive Communication</td><td class="term">Spring 2022</td><td>Ohio State</td><td><a href="files/syllabus-COMM2367.pdf">PDF</a></td></tr>
-        <tr><td>COMM 3163</td><td>Industry Research Methods</td><td class="term">Autumn 2021</td><td>Ohio State</td><td><a href="files/syllabus-COMM3163.pdf">PDF</a></td></tr>
-        <tr><td>COMM 3444</td><td>Advertising and Society</td><td class="term">Summer 2021</td><td>Ohio State</td><td><a href="files/syllabus-COMM3444.pdf">PDF</a></td></tr>
-        <tr><td>COMM 3160</td><td>Communication Research Methods</td><td class="term">Spring 2021</td><td>Ohio State</td><td><a href="files/syllabus-COMM3160.pdf">PDF</a></td></tr>
+        <tr><td>COMM 3558</td><td>Social Media</td><td class="term">Summer 2023</td><td>Ohio State</td><td><a href="files/syllabus-COMM3558.pdf">Syllabus</a></td></tr>
+        <tr><td>COMM 3628</td><td>Contemporary Persuasion Theories</td><td class="term">Autumn 2022</td><td>Ohio State</td><td><a href="files/syllabus-COMM3628.pdf">Syllabus</a></td></tr>
+        <tr><td>COMM 2367</td><td>Persuasive Communication</td><td class="term">Spring 2022</td><td>Ohio State</td><td><a href="files/syllabus-COMM2367.pdf">Syllabus</a></td></tr>
+        <tr><td>COMM 3163</td><td>Industry Research Methods</td><td class="term">Autumn 2021</td><td>Ohio State</td><td><a href="files/syllabus-COMM3163.pdf">Syllabus</a></td></tr>
+        <tr><td>COMM 3444</td><td>Advertising and Society</td><td class="term">Summer 2021</td><td>Ohio State</td><td><a href="files/syllabus-COMM3444.pdf">Syllabus</a></td></tr>
+        <tr><td>COMM 3160</td><td>Communication Research Methods</td><td class="term">Spring 2021</td><td>Ohio State</td><td><a href="files/syllabus-COMM3160.pdf">Syllabus</a></td></tr>
         <tr><td>COM 110</td><td>Public Speaking</td><td class="term">Fall 2015</td><td>NC State</td><td></td></tr>
       </tbody>
     </table>
