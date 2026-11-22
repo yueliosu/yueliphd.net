@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>COMS 930 Tutorials | Yue Li, Ph.D.</title>
+<meta name="description" content="Hands-on tutorials from COMS 930 Computational Research Methods at the University of Kansas: network analysis in R, and image and text analysis in Python.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a2540'/%3E%3Cpath d='M9 22 16 10l7 12' stroke='%238fd3ff' stroke-width='2' fill='none'/%3E%3Ccircle cx='16' cy='10' r='3' fill='%23ff5c8a'/%3E%3Ccircle cx='9' cy='22' r='2.5' fill='%238fd3ff'/%3E%3Ccircle cx='23' cy='22' r='2.5' fill='%238fd3ff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+/* Same look as the main site: deep sea #0a2540, sky #8fd3ff, pink #ff5c8a, Hanken Grotesk.
+   Layout: sea header strip, then one white strip per language, each tutorial a row with its links. */
+:root{color-scheme:light dark;--bg:light-dark(#fff,#0b2a49);--ink:light-dark(#0a2540,#eef4fb);--muted:light-dark(#4a5e79,#a9bed6);--rule:light-dark(#d9e2ec,#26496f);--link:light-dark(#0a5fae,#8fd3ff);--sea:#0a2540;--sky:#8fd3ff;--pink:#ff5c8a;--chip:light-dark(#eef4fb,#13355b)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 "Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:clip}
+a{color:var(--link);text-underline-offset:3px;text-decoration-thickness:1px}
+a:focus-visible{outline:2px solid var(--pink);outline-offset:3px;border-radius:3px}
+.band{padding:clamp(40px,5.5vw,80px) max(5vw,16px)}
+.wrap{max-width:1100px;margin:0 auto}
+.top{background:var(--sea);color:#fff;padding:0 max(5vw,16px)}
+.navrow{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0 24px;min-height:64px}
+.top a{color:#cfe0f1;text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
+.top a:hover{color:#fff}
+.top .brand{color:#fff;font-weight:600}
+.hero{background:var(--sea);color:#fff;padding-top:clamp(24px,4vw,56px);--muted:#a9bed6;--link:#8fd3ff}
+.kicker{font-size:17px;color:#a9bed6;margin:0 0 10px}
+h1{font-weight:300;font-size:clamp(40px,6vw,64px);line-height:1.05;margin:0 0 18px;text-wrap:balance}
+.lead{font-size:20px;line-height:1.5;max-width:60ch;color:#d3e2f1;margin:0}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:22px;font-size:15px;color:#a9bed6}
+h2{font-weight:300;font-size:clamp(28px,3.6vw,40px);line-height:1.1;margin:0 0 6px}
+.sub{color:var(--muted);margin:0 0 24px}
+.tut{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px 40px;align-items:center;padding:26px 0;border-top:1px solid var(--rule)}
+.tut:last-child{border-bottom:1px solid var(--rule)}
+.tut h3{font-size:21px;font-weight:500;line-height:1.3;margin:0 0 6px}
+.tut h3 a{color:var(--ink);text-decoration-color:var(--rule)}
+.tut h3 a:hover{text-decoration-color:var(--link)}
+.tut p{margin:0;max-width:64ch}
+.tags{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin:10px 0 0}
+.tags li{background:var(--chip);border-radius:999px;padding:2px 11px;font-size:14px}
+.note{font-size:15px;color:var(--muted);margin-top:8px!important}
+.actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--rule);border-radius:999px;color:var(--ink);text-decoration:none;font-size:16px;white-space:nowrap}
+.btn:hover{border-color:var(--link)}
+.btn.primary{background:var(--sea);border-color:var(--sea);color:#fff;font-weight:600}
+:root[data-theme=dark] .btn.primary{background:var(--sky);border-color:var(--sky);color:var(--sea)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .btn.primary{background:var(--sky);border-color:var(--sky);color:var(--sea)}}
+.strip+.strip{padding-top:0}
+.foot{background:var(--sea);color:#a9bed6;font-size:15px}
+.foot p{margin:0 0 8px;max-width:75ch}
+.foot a{color:#8fd3ff}
+@media(max-width:700px){.tut{grid-template-columns:minmax(0,1fr)}.actions{justify-content:flex-start}}
+</style>
+</head>
+<body>
+
+<nav class="top" aria-label="Main">
+  <div class="wrap navrow">
+    <a class="brand" href="../../index.html">Yue Li, Ph.D.</a>
+    <a href="../../index.html#teaching">&larr; Back to Teaching</a>
+  </div>
+</nav>
+
+<header class="band hero">
+  <div class="wrap">
+    <p class="kicker">COMS 930 Computational Research Methods · University of Kansas</p>
+    <h1>Course tutorials</h1>
+    <p class="lead">Hands-on labs and notebooks from my computational methods course: measuring and visualizing networks in R, and analyzing images and text with machine learning in Python.</p>
+    <div class="meta-row"><span>2 R Markdown labs</span><span>3 Python notebooks for Google Colab</span></div>
+  </div>
+</header>
+
+<main>
+<section class="band strip" aria-labelledby="r">
+  <div class="wrap">
+    <h2 id="r">Network analysis in R</h2>
+    <p class="sub">Open the lab to read it with code and output, or download the R Markdown file to run it in RStudio.</p>
+
+    <article class="tut">
+      <div>
+        <h3><a href="lab-1-network-measures.html">Lab 1: Descriptive network measures</a></h3>
+        <p>Degree, in- and out-degree, closeness, betweenness and eigenvector centrality in an international diplomacy network, and how the measures correlate.</p>
+        <ul class="tags"><li>R</li><li>igraph</li><li>Centrality</li></ul>
+      </div>
+      <div class="actions"><a class="btn primary" href="lab-1-network-measures.html">Read</a><a class="btn" href="lab-1-network-measures.Rmd" download>Download .Rmd</a></div>
+    </article>
+
+    <article class="tut">
+      <div>
+        <h3><a href="lab-2-network-visualization.html">Lab 2: Network visualization</a></h3>
+        <p>Visualizing networks for readers who don't know the data, using prisoner friendship, needle-sharing and other networks.</p>
+        <ul class="tags"><li>R</li><li>igraph</li><li>Visualization</li></ul>
+      </div>
+      <div class="actions"><a class="btn primary" href="lab-2-network-visualization.html">Read</a><a class="btn" href="lab-2-network-visualization.Rmd" download>Download .Rmd</a></div>
+    </article>
+    <p class="note">Both labs use the Comparative Networks Dataset (McMillan, Phadke, Goist, &amp; Denny, 2017), which is shared with enrolled students on Canvas.</p>
+  </div>
+</section>
+
+<section class="band strip" aria-labelledby="py">
+  <div class="wrap">
+    <h2 id="py">Images and text in Python</h2>
+    <p class="sub">Read the notebook here, or open it in Google Colab to run your own copy in the browser. Nothing to install.</p>
+
+    <article class="tut">
+      <div>
+        <h3><a href="visual-feature-extraction.html">Visual feature extraction</a></h3>
+        <p>How a computer turns an image into keypoints, feature vectors and clustered "visual words," the building blocks of bag-of-visual-words analysis.</p>
+        <ul class="tags"><li>Python</li><li>OpenCV</li><li>scikit-learn</li></ul>
+        <p class="note">Runs as is with an example image from Wikimedia Commons.</p>
+      </div>
+      <div class="actions"><a class="btn primary" href="visual-feature-extraction.html">Read</a><a class="btn" href="https://colab.research.google.com/github/yueliosu/yueliphd.net/blob/main/tutorials/coms930/visual-feature-extraction.ipynb">Open in Colab</a><a class="btn" href="visual-feature-extraction.ipynb" download>Download .ipynb</a></div>
+    </article>
+
+    <article class="tut">
+      <div>
+        <h3><a href="deepface-emotion-analysis.html">Facial emotion analysis with DeepFace</a></h3>
+        <p>Detecting faces and their dominant emotions in YouTube video thumbnails, then turning the emotion scores into variables for analysis.</p>
+        <ul class="tags"><li>Python</li><li>DeepFace</li><li>pandas</li></ul>
+        <p class="note">Uses a course dataset of 2024 YouTube videos, which isn't included here.</p>
+      </div>
+      <div class="actions"><a class="btn primary" href="deepface-emotion-analysis.html">Read</a><a class="btn" href="https://colab.research.google.com/github/yueliosu/yueliphd.net/blob/main/tutorials/coms930/deepface-emotion-analysis.ipynb">Open in Colab</a><a class="btn" href="deepface-emotion-analysis.ipynb" download>Download .ipynb</a></div>
+    </article>
+
+    <article class="tut">
+      <div>
+        <h3><a href="bert-supervised-learning.html">Fine-tuning BERT for classification</a></h3>
+        <p>Fine-tuning DistilBERT with Hugging Face <i>transformers</i> to predict a book's genre from its Goodreads reviews, from train/test split to evaluation.</p>
+        <ul class="tags"><li>Python</li><li>Hugging Face</li><li>Supervised learning</li></ul>
+        <p class="note">Downloads its data from the UCSD Book Graph; use a GPU runtime in Colab. Adapted from the AI for Humanists tutorial by Maria Antoniak, Melanie Walsh, and David Mimno.</p>
+      </div>
+      <div class="actions"><a class="btn primary" href="bert-supervised-learning.html">Read</a><a class="btn" href="https://colab.research.google.com/github/yueliosu/yueliphd.net/blob/main/tutorials/coms930/bert-supervised-learning.ipynb">Open in Colab</a><a class="btn" href="bert-supervised-learning.ipynb" download>Download .ipynb</a></div>
+    </article>
+  </div>
+</section>
+</main>
+
+<footer class="band foot">
+  <div class="wrap">
+    <p>These materials are shared for teaching and learning. If you use or adapt them, please credit Yue Li and the original sources noted above.</p>
+    <p><a href="../../index.html">yueliphd.net</a></p>
+  </div>
+</footer>
+</body>
+</html>
