@@ -1,6 +1,6 @@
 ---
 title: "COMS 930 tutorials"
-subtitle: "Computational Research Methods · University of Kansas"
+subtitle: "Computational Methods in Social Sciences · University of Kansas"
 description: "Hands-on labs and notebooks: measuring and visualizing networks in R, and analyzing images and text with machine learning in Python."
 toc: false
 ---
