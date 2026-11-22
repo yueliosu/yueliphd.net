@@ -44,7 +44,7 @@ The COMS 930 tutorials are a small Quarto site. Edit the source in `tutorials/co
 ## Conventions
 - Citations are in APA 7 style, newest first. Put Yue's name in `<b>` and journal names (with volume) in `<i>`. Link DOIs as `https://doi.org/...`.
 - The color scheme is "rose-lilac": tinted strips (class `tint`, plus the nav and hero) use a lilac → rose → blue gradient, with deep plum-indigo text, purple buttons, blue links, and blue (accurate information) and pink (misinformation) in the network picture. Use the CSS variables at the top of the `<style>` block (`--ink`, `--muted`, `--purple`, `--blue`, `--pink`, `--g1`–`--g3` for the gradient, and so on). Don't hard-code new colors. The tutorial site's matching colors are in `tutorials/coms930-src/theme.scss` and `_quarto.yml`.
-- The page supports light and dark mode through `light-dark()` variables. Check both after changing styles.
+- The site always shows the light rose-lilac colors (`color-scheme: light`), whatever the visitor's device setting. Yue chose this. The second value in each `light-dark()` is an unused dark version, kept in case she wants a dark mode later.
 - Check the layout at phone width (375px) as well as on desktop. Nothing should scroll sideways.
 - Photos go in `images/` as JPEGs about 1600px on the long edge (roughly 200–400 KB), never full-size phone originals. Use `<figure class="photo">` with a short `<figcaption>`, and give each `<img>` width, height, alt text and `loading="lazy"`.
 - Don't add frameworks, build tools or tracking scripts unless Yue asks for them.
