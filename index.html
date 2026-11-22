@@ -10,17 +10,17 @@
 <meta property="og:description" content="Assistant Professor of Communication Studies, University of Kansas. Research on health (mis)information, social networks, and computational methods.">
 <meta property="og:url" content="https://yueliphd.net/">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a2540'/%3E%3Cpath d='M9 22 16 10l7 12' stroke='%238fd3ff' stroke-width='2' fill='none'/%3E%3Ccircle cx='16' cy='10' r='3' fill='%23ff5c8a'/%3E%3Ccircle cx='9' cy='22' r='2.5' fill='%238fd3ff'/%3E%3Ccircle cx='23' cy='22' r='2.5' fill='%238fd3ff'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232b2150'/%3E%3Cpath d='M9 22 16 10l7 12' stroke='%23cbb8ff' stroke-width='2' fill='none'/%3E%3Ccircle cx='16' cy='10' r='3' fill='%23ff94bb'/%3E%3Ccircle cx='9' cy='22' r='2.5' fill='%238ec5ff'/%3E%3Ccircle cx='23' cy='22' r='2.5' fill='%238ec5ff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 /* VOICE: calm, precise, scholarly; a researcher's front door, not a brochure
    IDEA: a network-diffusion plate, like a figure from one of her own papers
-   PICTURE: two information cascades (accurate in sky, misinformation in pink) moving through a social network; her portrait sits beside her name below it
-   COLOUR and TYPE: deep sea #0a2540 field, sky #8fd3ff, white, signal pink #ff5c8a; Hanken Grotesk 300 for name and titles, Hanken Grotesk for text
-   LAYOUT: tall sea strip (network, name, intro), white research / publication / CV strips, sea teaching and contact strips, all hung on one left axis */
-:root{color-scheme:light dark;--bg:light-dark(#fff,#0b2a49);--ink:light-dark(#0a2540,#eef4fb);--muted:light-dark(#4a5e79,#a9bed6);--rule:light-dark(#d9e2ec,#26496f);--link:light-dark(#0a5fae,#8fd3ff);--sea:#0a2540;--deep:light-dark(#0a2540,#061a2e);--sky:#8fd3ff;--pink:#ff5c8a}
+   PICTURE: two information cascades (accurate in blue, misinformation in pink) moving through a social network; her portrait sits beside her name below it
+   COLOUR and TYPE: rose-lilac: tinted strips with a soft lilac-to-rose-to-blue gradient (--g1/--g2/--g3), deep plum-indigo ink #2b2150, purple #6a4bb5 buttons, blue #2a54a0 links, blue #3d6fd6 and pink #d63a78 for the network; dark mode swaps in twilight versions through light-dark(); Hanken Grotesk 300 for name and titles, Hanken Grotesk for text
+   LAYOUT: tall tinted strip (network, name, intro), white research / publication / CV strips, tinted teaching and contact strips, all hung on one left axis */
+:root{color-scheme:light dark;--bg:light-dark(#fff,#1f1b3d);--ink:light-dark(#2b2150,#f2eefb);--muted:light-dark(#5a4f78,#c4bcde);--rule:light-dark(#e4ddf0,#3d3670);--link:light-dark(#2a54a0,#a9c8ff);--plum:#2b2150;--purple:light-dark(#6a4bb5,#cbb8ff);--on-purple:light-dark(#fff,#2b2150);--blue:light-dark(#3d6fd6,#8ec5ff);--pink:light-dark(#d63a78,#ff94bb);--net:light-dark(#2b2150,#fff);--band:light-dark(#e4d5f1,#262250);--g1:light-dark(#e2d3f3,#2c2757);--g2:light-dark(#efd2e4,#3a2550);--g3:light-dark(#d3dff5,#22305a)}
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
 html{scroll-padding-top:72px;scroll-behavior:smooth}
@@ -35,34 +35,35 @@ h2{font-size:clamp(32px,4.4vw,48px);margin-bottom:32px}
 h3{font-size:17px;font-weight:600;margin:56px 0 16px}
 p{margin:0 0 1em}
 .meta{font-size:14px;color:var(--muted)}
-.sea{background:var(--deep);color:#eef4fb;--ink:#eef4fb;--muted:#a9bed6;--rule:#26496f;--link:#8fd3ff}
+.tint,.hero,.top{--ink:light-dark(#2b2150,#f2eefb);--muted:light-dark(#54497a,#c8c0e2);--soft:light-dark(#463c66,#ddd6f2);--rule:light-dark(#cdbfe0,#4a4380);--link:light-dark(#2a54a0,#a9c8ff);color:var(--ink)}
+.tint,.hero{background:linear-gradient(115deg,var(--g1) 0%,var(--g2) 52%,var(--g3) 100%)}
 .scroll{overflow-x:auto}.scroll a{flex:none}
 
 /* navigation */
-.top{background:var(--sea);color:#fff;padding:0 max(5vw,16px)}
+.top{background:var(--band);padding:0 max(5vw,16px)}
 @media(min-width:900px){.top{position:sticky;top:0;z-index:5}}
 .navrow{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0 24px;min-height:64px}
-.brand{color:#fff;text-decoration:none;font-weight:600;padding:10px 0}
+.brand{color:var(--ink);text-decoration:none;font-weight:600;padding:10px 0}
 .links{display:flex;gap:2px;margin:0 -10px}
-.links a{display:inline-flex;align-items:center;min-height:44px;padding:0 10px;color:#cfe0f1;text-decoration:none;font-size:16px}
-.links a:hover{color:#fff;box-shadow:inset 0 -2px var(--sky)}
+.links a{display:inline-flex;align-items:center;min-height:44px;padding:0 10px;color:var(--muted);text-decoration:none;font-size:16px}
+.links a:hover{color:var(--ink);box-shadow:inset 0 -2px var(--purple)}
 
 /* hero */
-.hero{background:var(--sea);color:#fff;padding-top:0;--link:#8fd3ff}
+.hero{padding-top:0}
 .net{position:relative;height:clamp(240px,44vh,440px);margin:0 calc(-1 * max(5vw,16px))}
 .net>svg{position:absolute;inset:0;width:100%;height:100%}
-.legend{display:flex;flex-wrap:wrap;gap:6px 22px;justify-content:flex-end;font-size:14px;color:#a9bed6;margin:4px 0 0}
+.legend{display:flex;flex-wrap:wrap;gap:6px 22px;justify-content:flex-end;font-size:14px;color:var(--muted);margin:4px 0 0}
 .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:7px;vertical-align:-1px}
 .intro{display:grid;grid-template-columns:clamp(160px,22vw,280px) minmax(0,1fr);grid-template-areas:"photo name" "photo lede";gap:8px clamp(28px,4vw,56px);align-items:end;margin-top:clamp(12px,3vw,36px)}
-.headshot{grid-area:photo;align-self:center;width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:22px;border:3px solid rgba(143,211,255,.45);box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.headshot{grid-area:photo;align-self:center;width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:22px;border:3px solid color-mix(in srgb,var(--purple) 35%,transparent);box-shadow:0 18px 40px rgba(43,33,80,.2)}
 .intro h1{grid-area:name}.intro .lede{grid-area:lede}
 h1{font-size:clamp(64px,9.5vw,128px);letter-spacing:-.02em;margin-left:-.04em}
 .role{font-size:20px;font-weight:500;line-height:1.35;margin-bottom:12px}
-.lede p:not(.role){color:#d3e2f1}
+.lede p:not(.role){color:var(--soft)}
 .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border:1px solid rgba(143,211,255,.5);border-radius:999px;color:#fff;text-decoration:none;font-size:16px}
-.btn:hover{border-color:var(--sky);background:rgba(143,211,255,.1)}
-.btn.primary{background:var(--sky);border-color:var(--sky);color:var(--sea);font-weight:600}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border:1px solid color-mix(in srgb,var(--ink) 30%,transparent);border-radius:999px;color:var(--ink);text-decoration:none;font-size:16px}
+.btn:hover{border-color:var(--purple);background:color-mix(in srgb,var(--purple) 10%,transparent)}
+.btn.primary{background:var(--purple);border-color:var(--purple);color:var(--on-purple);font-weight:600}
 .go{animation:draw .55s ease-out forwards}
 .pop{opacity:0;animation:pop .4s ease-out forwards}
 @keyframes draw{to{stroke-dashoffset:0}}@keyframes pop{to{opacity:1}}
@@ -99,7 +100,7 @@ details p{max-width:70ch;color:var(--muted);font-size:16px}
 
 /* teaching */
 .teach{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px 56px;align-items:start}
-.teach .phil{font-size:20px;line-height:1.5;font-weight:300;color:#fff}
+.teach .phil{font-size:20px;line-height:1.5;font-weight:300;color:var(--ink)}
 table{width:100%;border-collapse:collapse;font-size:16px}
 th{text-align:start;font-size:14px;font-weight:500;color:var(--muted);padding:0 16px 10px 0;border-bottom:1px solid var(--rule)}
 td{padding:12px 16px 12px 0;border-bottom:1px solid var(--rule);vertical-align:top}
@@ -108,10 +109,10 @@ td.term{white-space:nowrap}
 .tut-intro{max-width:70ch}
 .tutgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px 56px;margin-top:20px}
 .tutlist{list-style:none;padding:0;margin:8px 0 0}.tutlist li{padding:12px 0;border-top:1px solid var(--rule)}
-.tutlist a.t{color:#fff;font-weight:500;font-size:18px;text-decoration-color:rgba(143,211,255,.45)}.tutlist a.t:hover{text-decoration-color:var(--sky)}
+.tutlist a.t{color:var(--ink);font-weight:500;font-size:18px;text-decoration-color:color-mix(in srgb,var(--purple) 45%,transparent)}.tutlist a.t:hover{text-decoration-color:var(--purple)}
 .tutlist .d{display:block;color:var(--muted);font-size:15px;margin-top:2px}
 .quotes{columns:2 300px;column-gap:48px;margin-top:8px}
-blockquote{break-inside:avoid;margin:0 0 30px;color:#e3edf7}
+blockquote{break-inside:avoid;margin:0 0 30px;color:var(--ink)}
 blockquote::before{content:"\201C";display:block;font-size:48px;line-height:.7;color:var(--pink);height:22px}
 
 /* cv */
@@ -124,15 +125,13 @@ blockquote::before{content:"\201C";display:block;font-size:48px;line-height:.7;c
 .cvcols h3{margin-top:0}
 .cvbar{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;margin-top:44px}
 .cvbar .btn{color:var(--ink);border-color:var(--rule)}
-.cvbar .btn.primary{background:var(--sea);color:#fff;border-color:var(--sea)}
-:root[data-theme=dark] .cvbar .btn.primary{background:var(--sky);color:var(--sea);border-color:var(--sky)}
-@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .cvbar .btn.primary{background:var(--sky);color:var(--sea);border-color:var(--sky)}}
+.cvbar .btn.primary{color:var(--on-purple);border-color:var(--purple)}
 
 /* contact */
 .contact{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:24px 56px;align-items:start}
 .contact ul{list-style:none;padding:0;margin:0}
-.contact li a{display:flex;justify-content:space-between;align-items:center;min-height:52px;border-bottom:1px solid var(--rule);color:#fff;text-decoration:none;font-size:18px}
-.contact li a:hover{color:var(--sky)}
+.contact li a{display:flex;justify-content:space-between;align-items:center;min-height:52px;border-bottom:1px solid var(--rule);color:var(--ink);text-decoration:none;font-size:18px}
+.contact li a:hover{color:var(--purple)}
 .contact li a span{color:var(--muted);font-size:14px}
 .foot{margin-top:56px;font-size:14px;color:var(--muted)}
 
@@ -162,7 +161,7 @@ blockquote::before{content:"\201C";display:block;font-size:48px;line-height:.7;c
     <div class="net" aria-hidden="true">
       <svg id="net"></svg>
     </div>
-    <p class="legend"><span><i class="dot" style="background:var(--sky)"></i>Accurate information</span><span><i class="dot" style="background:var(--pink)"></i>Misinformation</span></p>
+    <p class="legend"><span><i class="dot" style="background:var(--blue)"></i>Accurate information</span><span><i class="dot" style="background:var(--pink)"></i>Misinformation</span></p>
     <div class="intro">
       <img class="headshot" src="images/headshot.jpg" alt="Portrait of Yue Li" width="800" height="800">
       <h1>Dr. Yue Li</h1>
@@ -274,7 +273,7 @@ blockquote::before{content:"\201C";display:block;font-size:48px;line-height:.7;c
   </div>
 </section>
 
-<section class="band sea" id="teaching">
+<section class="band tint" id="teaching">
   <div class="wrap">
     <h2>Teaching</h2>
     <div class="teach">
@@ -383,7 +382,7 @@ blockquote::before{content:"\201C";display:block;font-size:48px;line-height:.7;c
 </section>
 </main>
 
-<footer class="band sea" id="contact">
+<footer class="band tint" id="contact">
   <div class="wrap">
     <div class="contact">
       <div>
@@ -406,7 +405,7 @@ blockquote::before{content:"\201C";display:block;font-size:48px;line-height:.7;c
   const svg = document.getElementById('net');
   const rnd = s => () => { s |= 0; s = s + 0x6D2B79F5 | 0; let t = Math.imul(s ^ s >>> 15, 1 | s); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
   const A = { u: .2, v: .52 }, B = { u: .79, v: .4 };
-  const col = { a: '#8fd3ff', b: '#ff5c8a' };
+  const css = v => { const t = document.createElement('i'); t.style.color = 'var(' + v + ')'; svg.parentNode.append(t); const c = getComputedStyle(t).color; t.remove(); return c; };
   const base = [];
   { const r = rnd(11), C = 18, R = 7;
     for (let i = 0; i < C; i++) for (let j = 0; j < R; j++) {
@@ -421,6 +420,7 @@ blockquote::before{content:"\201C";display:block;font-size:48px;line-height:.7;c
     const W = svg.clientWidth, H = svg.clientHeight;
     if (!W || !H) return;
     const anim = !still && performance.now() < animUntil;
+    const col = { a: css('--blue'), b: css('--pink') }, grey = css('--net');
     const n = [{ x: A.u * W, y: A.v * H }, { x: B.u * W, y: B.v * H }];
     base.forEach((q, idx) => {
       if (W < 520 && idx % 2) return;
@@ -455,7 +455,7 @@ blockquote::before{content:"\201C";display:block;font-size:48px;line-height:.7;c
     let h = '';
     for (const [i, j] of E.values()) {
       const c = par[j] === i ? j : par[i] === j ? i : -1;
-      if (c < 0) { h += line(n[i], n[j], 'stroke="#fff" stroke-opacity=".13"'); continue; }
+      if (c < 0) { h += line(n[i], n[j], 'stroke="' + grey + '" stroke-opacity=".15"'); continue; }
       const p = n[par[c]], q = n[c], L = f(Math.hypot(q.x - p.x, q.y - p.y));
       const a = anim ? ' class="go" stroke-dasharray="' + L + '" stroke-dashoffset="' + L + '"' + delay(.3 + (dep[c] - 1) * T) : '';
       h += line(p, q, 'stroke="' + col[own[c]] + '" stroke-width="1.7" stroke-opacity=".9"' + a);
@@ -464,12 +464,13 @@ blockquote::before{content:"\201C";display:block;font-size:48px;line-height:.7;c
       const o = own[i];
       if (i < 2) h += dot(p, 17, 'fill="none" stroke="' + col[o] + '" stroke-opacity=".45"');
       const a = anim && o && i > 1 ? ' class="pop"' + delay(.3 + dep[i] * T) : '';
-      h += dot(p, i < 2 ? 8 : o ? 3.8 : 2.4, 'fill="' + (o ? col[o] : '#fff') + '" fill-opacity="' + (o ? 1 : .4) + '"' + a);
+      h += dot(p, i < 2 ? 8 : o ? 3.8 : 2.4, 'fill="' + (o ? col[o] : grey) + '" fill-opacity="' + (o ? 1 : .35) + '"' + a);
     });
     svg.innerHTML = h;
   };
   const netObserver = new ResizeObserver(draw);
   netObserver.observe(svg);
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', draw);
 }
 </script>
 </body>

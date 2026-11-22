@@ -17,8 +17,8 @@ website:
   page-navigation: true
   bread-crumbs: false
   navbar:
-    background: "#0a2540"
-    foreground: "#ffffff"
+    background: "#e4d5f1"
+    foreground: "#2b2150"
     right:
       - text: "Yue Li, Ph.D."
         href: "https://yueliphd.net/"
@@ -53,8 +53,8 @@ format:
     code-copy: true
     code-overflow: wrap
     highlight-style: github
-    title-block-banner: "#0a2540"
-    title-block-banner-color: "#ffffff"
+    title-block-banner: "#e4d5f1"
+    title-block-banner-color: "#2b2150"
     include-in-header: fonts.html
     smooth-scroll: true
 
