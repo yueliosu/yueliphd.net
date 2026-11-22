@@ -15,7 +15,9 @@ This repository is the personal academic website of **Yue Li, Ph.D.**, served at
 | `files/Yue-Li-CV.pdf` | CV, updated September 2024. Replace it with the current CV under the same name so the links keep working, and update the "CV last updated" note in the CV section. | Hero and CV buttons |
 | `files/portfolio.pdf` | Advertising photography and graphic design portfolio from undergrad | CV section |
 | `files/syllabus-COMM*.pdf` | Ohio State syllabi (COMM 2367, 3160, 3163, 3444, 3558, 3628) | Teaching table |
-| `images/headshot.jpg` | Square 800×800 crop of the headshot | Hero portrait |
+| `images/headshot.jpg` | Square 800×800 crop of the headshot | Hero, beside the name |
+| `images/team-ice-cream.jpg`, `images/team-dinner.jpg` | Team outing photos (1600×1200) | Research → Team |
+| `images/class-undergrads.jpg` | Photo with undergraduate students (1600×900) | Teaching, beside the philosophy |
 | `images/headshot-original.jpg` | Full-size original headshot | No |
 | `images/teaching.jpg` | Teaching photo from the old site | No |
 | `images/fig-*.jpg`, `images/fig-*.png` | Figures from the three "Selected work" papers (semantic similarity, EPPM, social signatures) | No (could illustrate Selected work) |
@@ -24,10 +26,10 @@ This repository is the personal academic website of **Yue Li, Ph.D.**, served at
 | Section | Element / id | Notes |
 |---|---|---|
 | Navigation | `<nav class="top">` | Links to the section ids below |
-| Hero | `<header id="top">` | Network illustration (`<svg id="net">`, drawn by the script at the bottom), portrait, name, title, intro, buttons |
-| Research | `<section id="research">` | Three research areas, methods paragraph and tags, "Selected work" articles with `<details>` abstracts |
+| Hero | `<header id="top">` | Network illustration (`<svg id="net">`, drawn by the script at the bottom), then the headshot (`img.headshot`) beside the name, title, intro and buttons |
+| Research | `<section id="research">` | Three research areas, methods paragraph and tags, "Selected work" articles with `<details>` abstracts, "Team" photos (`<div class="team">` of `<figure class="photo">`) |
 | Publications | `<section id="publications">` | `<ol class="pubs">` lists; each `<li>` is `<span class="yr">YEAR</span><span>citation</span>`; Yue's name in `<b>` |
-| Teaching | `<section id="teaching">` | Philosophy, course tables (`class="stack"` makes them phone-friendly), student evaluation quotes |
+| Teaching | `<section id="teaching">` | Philosophy with the class photo beside it, course tables (`class="stack"` makes them phone-friendly), student evaluation quotes |
 | CV | `<section id="cv">` | Appointments and education timelines (`<ol class="tl">`), CV download button |
 | Contact | `<footer id="contact">` | Contact links |
 
@@ -36,6 +38,7 @@ This repository is the personal academic website of **Yue Li, Ph.D.**, served at
 - Use the colors defined as CSS variables at the top of the `<style>` block (`--sea`, `--sky`, `--pink`, and so on). Don't hard-code new colors.
 - The page supports light and dark mode through `light-dark()` variables. Check both after changing styles.
 - Check the layout at phone width (375px) as well as on desktop. Nothing should scroll sideways.
+- Photos go in `images/` as JPEGs about 1600px on the long edge (roughly 200–400 KB), never full-size phone originals. Use `<figure class="photo">` with a short `<figcaption>`, and give each `<img>` width, height, alt text and `loading="lazy"`.
 - Don't add frameworks, build tools or tracking scripts unless Yue asks for them.
 - The network illustration script at the bottom of the file is self-contained. Leave it alone unless the task is about the illustration.
 
