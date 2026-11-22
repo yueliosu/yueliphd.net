@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yue Li, Ph.D.</title>
+<meta name="description" content="Yue Li is an assistant professor of communication studies at the University of Kansas. Her research uses computational methods to study how health information and misinformation spread on social media and how they shape public perceptions and behaviors.">
+<link rel="canonical" href="https://yueliphd.net/">
+<meta property="og:title" content="Yue Li, Ph.D.">
+<meta property="og:description" content="Assistant Professor of Communication Studies, University of Kansas. Research on health (mis)information, social networks, and computational methods.">
+<meta property="og:url" content="https://yueliphd.net/">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a2540'/%3E%3Cpath d='M9 22 16 10l7 12' stroke='%238fd3ff' stroke-width='2' fill='none'/%3E%3Ccircle cx='16' cy='10' r='3' fill='%23ff5c8a'/%3E%3Ccircle cx='9' cy='22' r='2.5' fill='%238fd3ff'/%3E%3Ccircle cx='23' cy='22' r='2.5' fill='%238fd3ff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+/* VOICE: calm, precise, scholarly; a researcher's front door, not a brochure
+   IDEA: a network-diffusion plate, like a figure from one of her own papers
+   PICTURE: two information cascades (accurate in sky, misinformation in pink) moving through a social network; her portrait seeds the accurate one
+   COLOUR and TYPE: deep sea #0a2540 field, sky #8fd3ff, white, signal pink #ff5c8a; Hanken Grotesk 300 for name and titles, Hanken Grotesk for text
+   LAYOUT: tall sea strip (network, name, intro), white research / publication / CV strips, sea teaching and contact strips, all hung on one left axis */
+:root{color-scheme:light dark;--bg:light-dark(#fff,#0b2a49);--ink:light-dark(#0a2540,#eef4fb);--muted:light-dark(#4a5e79,#a9bed6);--rule:light-dark(#d9e2ec,#26496f);--link:light-dark(#0a5fae,#8fd3ff);--sea:#0a2540;--deep:light-dark(#0a2540,#061a2e);--sky:#8fd3ff;--pink:#ff5c8a}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 "Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:clip}
+a{color:var(--link);text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--pink);outline-offset:3px;border-radius:3px}
+.band{padding:clamp(44px,6vw,96px) max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+h1,h2{font-weight:300;line-height:1.05;text-wrap:balance;margin:0}
+h2{font-size:clamp(32px,4.4vw,48px);margin-bottom:32px}
+h3{font-size:17px;font-weight:600;margin:56px 0 16px}
+p{margin:0 0 1em}
+.meta{font-size:14px;color:var(--muted)}
+.sea{background:var(--deep);color:#eef4fb;--ink:#eef4fb;--muted:#a9bed6;--rule:#26496f;--link:#8fd3ff}
+.scroll{overflow-x:auto}.scroll a{flex:none}
+
+/* navigation */
+.top{background:var(--sea);color:#fff;padding:0 max(5vw,16px)}
+@media(min-width:900px){.top{position:sticky;top:0;z-index:5}}
+.navrow{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0 24px;min-height:64px}
+.brand{color:#fff;text-decoration:none;font-weight:600;padding:10px 0}
+.links{display:flex;gap:2px;margin:0 -10px}
+.links a{display:inline-flex;align-items:center;min-height:44px;padding:0 10px;color:#cfe0f1;text-decoration:none;font-size:16px}
+.links a:hover{color:#fff;box-shadow:inset 0 -2px var(--sky)}
+
+/* hero */
+.hero{background:var(--sea);color:#fff;padding-top:0;--link:#8fd3ff}
+.net{position:relative;height:clamp(240px,44vh,440px);margin:0 calc(-1 * max(5vw,16px))}
+.net>svg{position:absolute;inset:0;width:100%;height:100%}
+.portrait{position:absolute;left:20%;top:52%;width:clamp(92px,13vw,150px);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;overflow:hidden;background:radial-gradient(circle at 35% 30%,#1f5487,#0c2f55);border:3px solid var(--sky);box-shadow:0 0 0 9px rgba(143,211,255,.13),0 14px 30px rgba(0,0,0,.4);display:grid;place-items:center;font-size:clamp(30px,4vw,46px);font-weight:300;color:#fff}
+.portrait img{width:100%;height:100%;object-fit:cover}
+.legend{display:flex;flex-wrap:wrap;gap:6px 22px;justify-content:flex-end;font-size:14px;color:#a9bed6;margin:4px 0 0}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:7px;vertical-align:-1px}
+.intro{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:20px 56px;align-items:end;margin-top:clamp(12px,3vw,36px)}
+h1{font-size:clamp(68px,10.5vw,136px);letter-spacing:-.02em;margin-left:-.04em}
+.role{font-size:20px;font-weight:500;line-height:1.35;margin-bottom:12px}
+.lede p:not(.role){color:#d3e2f1}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border:1px solid rgba(143,211,255,.5);border-radius:999px;color:#fff;text-decoration:none;font-size:16px}
+.btn:hover{border-color:var(--sky);background:rgba(143,211,255,.1)}
+.btn.primary{background:var(--sky);border-color:var(--sky);color:var(--sea);font-weight:600}
+.go{animation:draw .55s ease-out forwards}
+.pop{opacity:0;animation:pop .4s ease-out forwards}
+@keyframes draw{to{stroke-dashoffset:0}}@keyframes pop{to{opacity:1}}
+
+/* research */
+.areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:36px 48px;border-top:1px solid var(--rule);padding-top:32px}
+.area svg{width:56px;height:56px;display:block}
+.area h3{margin:16px 0 8px;font-size:20px;font-weight:500;line-height:1.3}
+.area p{color:var(--muted);margin:0}
+.methods{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px 56px;margin-top:64px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:8px 0 20px}
+.tags li{border:1px solid var(--rule);border-radius:999px;padding:4px 13px;font-size:14px}
+.work{display:grid;grid-template-columns:10em minmax(0,1fr);gap:8px 40px;border-top:1px solid var(--rule);padding:30px 0}
+.work h4{font-size:20px;font-weight:500;line-height:1.35;margin:0 0 6px;text-wrap:balance}
+.work h4 a{color:var(--ink);text-decoration-color:var(--rule)}
+.work h4 a:hover{text-decoration-color:var(--link)}
+.work .sum{margin:12px 0 8px;max-width:68ch}
+.how{font-size:14px;color:var(--muted);margin:0}
+details{margin-top:8px}
+summary{cursor:pointer;display:inline-flex;align-items:center;min-height:44px;color:var(--link);font-size:16px}
+details p{max-width:70ch;color:var(--muted);font-size:16px}
+
+/* publications */
+.pubs{list-style:none;padding:0;margin:0}
+.pubs li{display:grid;grid-template-columns:5em minmax(0,1fr);gap:4px 24px;padding:16px 0;border-top:1px solid var(--rule)}
+.pubs .yr{font-weight:600;color:var(--muted);font-size:16px}
+.pubs a{overflow-wrap:anywhere}
+.intro-pubs{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 24px}
+
+/* teaching */
+.teach{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px 56px}
+.teach .phil{font-size:20px;line-height:1.5;font-weight:300;color:#fff}
+table{width:100%;border-collapse:collapse;font-size:16px}
+th{text-align:start;font-size:14px;font-weight:500;color:var(--muted);padding:0 16px 10px 0;border-bottom:1px solid var(--rule)}
+td{padding:12px 16px 12px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td:first-child{white-space:nowrap;font-weight:600}
+td.term{white-space:nowrap}
+.quotes{columns:2 300px;column-gap:48px;margin-top:8px}
+blockquote{break-inside:avoid;margin:0 0 30px;color:#e3edf7}
+blockquote::before{content:"\201C";display:block;font-size:48px;line-height:.7;color:var(--pink);height:22px}
+
+/* cv */
+.cvcols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 56px}
+.tl{list-style:none;padding:0;margin:0}
+.tl li{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:2px 20px;padding:16px 0;border-top:1px solid var(--rule)}
+.tl .yr{font-weight:600;white-space:nowrap}
+.tl b{font-weight:600}
+.tl p{margin:2px 0 0;color:var(--muted);font-size:16px}
+.cvcols h3{margin-top:0}
+.cvbar{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;margin-top:44px}
+.cvbar .btn{color:var(--ink);border-color:var(--rule)}
+.cvbar .btn.primary{background:var(--sea);color:#fff;border-color:var(--sea)}
+:root[data-theme=dark] .cvbar .btn.primary{background:var(--sky);color:var(--sea);border-color:var(--sky)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .cvbar .btn.primary{background:var(--sky);color:var(--sea);border-color:var(--sky)}}
+
+/* contact */
+.contact{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:24px 56px;align-items:start}
+.contact ul{list-style:none;padding:0;margin:0}
+.contact li a{display:flex;justify-content:space-between;align-items:center;min-height:52px;border-bottom:1px solid var(--rule);color:#fff;text-decoration:none;font-size:18px}
+.contact li a:hover{color:var(--sky)}
+.contact li a span{color:var(--muted);font-size:14px}
+.foot{margin-top:56px;font-size:14px;color:var(--muted)}
+
+@media(max-width:760px){.intro,.methods,.teach,.cvcols,.contact{grid-template-columns:minmax(0,1fr)}.cvcols>div+div{margin-top:40px}.work{grid-template-columns:minmax(0,1fr)}.legend{justify-content:flex-start}}
+@media(max-width:600px){table{font-size:15px}.stack thead{display:none}.stack tr{display:grid;padding-block:10px;border-bottom:1px solid var(--rule)}.stack td{display:flow-root;border:0;padding:3px 0;padding-inline-start:7em;text-align:start;white-space:normal}.stack td::before{content:attr(data-l);float:inline-start;width:6.5em;margin-inline-start:-7em;color:var(--muted);font-weight:400;font-size:14px}.stack td:empty{display:none}.pubs li,.tl li{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.go,.pop{animation:none;opacity:1;stroke-dashoffset:0}}
+</style>
+<script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent||''}}).observe(document,{childList:true,subtree:true})</script>
+</head>
+<body>
+
+<nav class="top" aria-label="Main">
+  <div class="wrap navrow">
+    <a class="brand" href="#top">Yue Li, Ph.D.</a>
+    <div class="links scroll">
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#cv">CV</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="band hero" id="top">
+  <div class="wrap">
+    <div class="net" aria-hidden="true">
+      <svg id="net"></svg>
+      <div class="portrait">YL</div>
+    </div>
+    <p class="legend"><span><i class="dot" style="background:var(--sky)"></i>Accurate information</span><span><i class="dot" style="background:var(--pink)"></i>Misinformation</span></p>
+    <div class="intro">
+      <h1>Yue Li</h1>
+      <div class="lede">
+        <p class="role">Assistant Professor, Department of Communication Studies, University of Kansas</p>
+        <p>I study how health-related information and misinformation spread across people and news media on social media, and how they shape what the public believes and does over time.</p>
+        <div class="btns">
+          <a class="btn primary" href="https://c1c42ea9-227b-42c0-9cfa-6199aabce999.filesusr.com/ugd/4a346c_5041671b9d6348c6acdfa335b2f2574e.pdf">Download CV</a>
+          <a class="btn" href="https://scholar.google.com/citations?user=ZIJgPwMAAAAJ&amp;hl=en">Google Scholar</a>
+          <a class="btn" href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="band" id="research">
+  <div class="wrap">
+    <h2>Research</h2>
+    <div class="areas">
+      <div class="area">
+        <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 28 30 14M12 28l18 14M30 14l14-2M30 14l12 12M30 42l12-16M30 42l14 4"/><circle cx="12" cy="28" r="5" fill="var(--pink)" stroke="none"/><circle cx="30" cy="14" r="3.5" fill="currentColor"/><circle cx="30" cy="42" r="3.5" fill="currentColor"/><circle cx="44" cy="12" r="2.5"/><circle cx="42" cy="26" r="2.5"/><circle cx="44" cy="46" r="2.5"/></svg>
+        <h3>How health (mis)information spreads</h3>
+        <p>The diffusion of health-related information and misinformation across individuals and news media on social media.</p>
+      </div>
+      <div class="area">
+        <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 46h44"/><path d="M6 34c5 0 6-14 11-14s6 18 11 18 6-26 11-26 6 16 11 16" stroke="var(--pink)" stroke-width="2"/><path d="M6 40c6 0 8-6 14-6s8 4 14 4 8-8 16-8" opacity=".55"/></svg>
+        <h3>Strategic communication and public health policy</h3>
+        <p>The dynamic processes of strategic communication and media coverage of public health policies.</p>
+      </div>
+      <div class="area">
+        <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 46h44"/><rect x="9" y="32" width="8" height="14"/><rect x="24" y="24" width="8" height="22"/><rect x="39" y="14" width="8" height="32" fill="var(--pink)" stroke="none"/><path d="M13 26 28 18l15-10" stroke-dasharray="2 3"/></svg>
+        <h3>Effects on perceptions and behavior over time</h3>
+        <p>How people process health-related (mis)information, and its longitudinal effects on their health-related perceptions and behaviors.</p>
+      </div>
+    </div>
+
+    <div class="methods">
+      <p>To answer these questions, I apply theory-driven computational methods, including social network analysis, natural language processing, and machine learning, to "big data": text, social network data, longitudinal surveys, and digital trace data from social media. I also use advanced inferential analyses, such as inferential network analysis, longitudinal panel analysis, and time-series analysis, to explain communication processes.</p>
+      <div>
+        <div class="meta">Methods</div>
+        <ul class="tags"><li>Social network analysis</li><li>Natural language processing</li><li>Machine learning</li><li>Inferential network models</li><li>Longitudinal panel analysis</li><li>Time-series analysis</li></ul>
+        <div class="meta">Software</div>
+        <ul class="tags"><li>R</li><li>Python</li><li>Stata</li><li>SAS</li><li>Mplus</li><li>SPSS</li></ul>
+      </div>
+    </div>
+
+    <h3>Selected work</h3>
+    <article class="work">
+      <div class="meta">2023<br><i>Human Communication Research</i></div>
+      <div>
+        <h4><a href="https://doi.org/10.1093/hcr/hqac020">Examining semantic (dis)similarity in news through news organizations' ideological similarity, similarity in truthfulness, and public engagement on social media: A network approach</a></h4>
+        <div class="meta">Li, Y., &amp; Bond, R. M.</div>
+        <p class="sum">Using Facebook and Twitter user logs and ten months of news text from more than 100 news organizations, we find that outlets closer in ideology and truthfulness publish more semantically similar news, while articles that draw more public engagement on social media are less similar.</p>
+        <p class="how">Methods: "cultural networks" of news organizations (Bail, 2016) built with the <a href="https://github.com/cbail/textnets">textnets</a> package in R; Additive and Multiplicative Effects network models (Hoff, 2021) with the <a href="https://pdhoff.github.io/amen/">amen</a> package in R.</p>
+        <details><summary>Abstract</summary><p>The rise of homogenization and polarization in the news may inhibit individuals' understanding of an issue and the functioning of a democratic society. This study applies a network approach to understanding patterns of semantic similarity and divergence across news coverage. Specifically, we focus on how (a) inter-organizational networks based on media ideology, (b) inter-organizational networks based on news truthfulness, and (c) public engagement that news articles received on social media may affect semantic similarity in the news. We use large-scale user logs data on social media platforms (i.e., Facebook and Twitter) and news text data from more than 100 news organizations over 10 months to examine the three potential processes. Our results show that the similarity between news organizations in terms of media ideology and news truthfulness is positively associated with semantic similarity, whereas the public engagement that news articles received on social media is negatively associated with semantic similarity. Our study contributes to theory development in mass communication by shifting to a network paradigm that connects news organizations, news content, and news audiences. We demonstrate how scholars across communication disciplines may collaborate to integrate distinct theories, connect multiple levels, and link otherwise separate dimensions. Methodologically, we demonstrate how synchronizing network science with natural language processing and combining social media log data with text data can help to answer research questions that communication scholars are interested in. The findings' implications for news polarization are discussed.</p></details>
+      </div>
+    </article>
+    <article class="work">
+      <div class="meta">2023<br><i>Human Communication Research</i></div>
+      <div>
+        <h4><a href="https://doi.org/10.1093/hcr/hqad025">Presidential communication during the pandemic: A longitudinal examination of its relationship with partisan perceptions and behaviors in the United States</a></h4>
+        <div class="meta">Li, Y., Wang, Z., &amp; Li, Q.</div>
+        <p class="sum">Machine-learning content analysis of the White House's 2020 pandemic press conferences, linked to longitudinal surveys of nationally representative samples of U.S. adults, shows that more threat information was followed by a smaller partisan gap in perceived threat and self-quarantine, driven by increases among Republicans.</p>
+        <p class="how">Methods: supervised machine learning; vector autoregressive models of the message system and the perception-and-behavior system; a dynamic extension of the extended parallel process model (EPPM).</p>
+        <details><summary>Abstract</summary><p>Partisanship played a key role in shaping individuals' responses to the COVID-19 pandemic in the United States. The current project applies the extended parallel processing model (EPPM) to examine how the content features of White House press conferences were associated with the partisan gap in perceptions and behavior during the early stage of the pandemic. Using supervised machine learning, Study 1 analyzes the White House press conferences regarding the pandemic during 2020. The results demonstrate that the White House focused on efficacy but included minimal threat information. Study 2 uses the threat and efficacy information in White House press conferences to predict perceived threat and efficacy as well as self-quarantine behavior measured by longitudinal surveys using nationally representative samples of U.S. adults. Time-series analysis shows that an increase of threat information from the White House was associated with a subsequent decrease in the partisan gap between Democrats and Republicans on perceived threat and self-quarantine behavior by increasing perceived threat and self-quarantine behavior among Republicans. This study contributes to presidential communication research by systematically examining specific message features and linking them to public perceptions and behaviors in the context of a public health crisis. The study also extends the EPPM to a dynamic model, estimating the asymmetric effects and self-continuity of positive (i.e., efficacy) and negative (i.e., threat) information on perceptions and behaviors.</p></details>
+      </div>
+    </article>
+    <article class="work">
+      <div class="meta">2022<br><i>Applied Network Science</i></div>
+      <div>
+        <h4><a href="https://doi.org/10.1007/s41109-022-00448-0">Evidence of the persistence and consistency of social signatures</a></h4>
+        <div class="meta">Li, Y., &amp; Bond, R. M.</div>
+        <p class="sum">Phone-call, text-message, and in-person interaction data from more than 700 university students show that even as people's contacts turn over, the way they distribute communication across their networks stays persistent over time and consistent across modes, and mediated networks are more stable than in-person ones.</p>
+        <p class="how">Methods: Jaccard index and Jensen–Shannon distance to measure the persistence and consistency of social signatures.</p>
+        <details><summary>Abstract</summary><p>Human social networks are composed of multiple dynamic and overlapping communication networks, in which membership changes over time. However, less well understood are whether and how our communication patterns are similar or different over time and across various modes of communication. Here, we use data on the frequency of phone calls, text messages, and in-person interactions to examine the social signatures of more than 700 students in a university setting. Our analysis shows that although there is substantial turnover in participants' networks, participants' social signatures are persistent across time and consistent across communication modes. Further, we find that communication networks that are mediated via phone calls or text messages are more stable than are in-person networks. Our results show that, likely due to limitations in cognitive and emotional resources, people maintain networks of relatively stable size and structure their communication within those networks in predictable patterns. Our findings may help with formalizing social network theories, explaining individual-level attitudes and behaviors and aggregate-level social phenomena, and making predictions and detecting abnormalities in applied fields.</p></details>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="band" id="publications" style="padding-top:0">
+  <div class="wrap">
+    <div class="intro-pubs"><h2>Publications</h2><a href="https://scholar.google.com/citations?user=ZIJgPwMAAAAJ&amp;hl=en">All citations on Google Scholar</a></div>
+    <h3 style="margin-top:0">Peer-reviewed journal articles</h3>
+    <ol class="pubs">
+      <li><span class="yr">2023</span><span>Cappella, J. N., &amp; <b>Li, Y.</b> Principles of effective message design: A review and model of content and format features. <i>Asian Communication Research, 20</i>(3), 147–174. <a href="https://doi.org/10.20879/acr.2023.20.023">doi.org/10.20879/acr.2023.20.023</a></span></li>
+      <li><span class="yr">2023</span><span><b>Li, Y.</b>, Wang, Z., &amp; Li, Q. Presidential communication during the pandemic: A longitudinal examination of its relationship with partisan perceptions and behaviors in the United States. <i>Human Communication Research</i>, hqad025. <a href="https://doi.org/10.1093/hcr/hqad025">doi.org/10.1093/hcr/hqad025</a></span></li>
+      <li><span class="yr">2023</span><span><b>Li, Y.</b>, &amp; Bond, R. M. Examining semantic (dis)similarity in news through news organizations' ideological similarity, similarity in truthfulness, and public engagement on social media: A network approach. <i>Human Communication Research, 49</i>(1), 47–60. <a href="https://doi.org/10.1093/hcr/hqac020">doi.org/10.1093/hcr/hqac020</a></span></li>
+      <li><span class="yr">2023</span><span><b>Li, Y.</b>, Gee, W., Jin, K., &amp; Bond, R. M. Examining homophily, language coordination, and analytical thinking in web-based conversations about vaccines on Reddit: Study using deep neural network language models and computer-assisted conversational analyses. <i>Journal of Medical Internet Research, 25</i>, e41882. <a href="https://doi.org/10.2196/41882">doi.org/10.2196/41882</a></span></li>
+      <li><span class="yr">2022</span><span><b>Li, Y.</b>, &amp; Bond, R. M. Evidence of the persistence and consistency of social signatures. <i>Applied Network Science, 7</i>(1), 1–19. <a href="https://doi.org/10.1007/s41109-022-00448-0">doi.org/10.1007/s41109-022-00448-0</a></span></li>
+    </ol>
+    <h3>Conference presentations</h3>
+    <ol class="pubs">
+      <li><span class="yr">2024</span><span><b>Li, Y.</b> Unveiling virality: In the context of COVID-19 vaccines, accurate information triumphs over misinformation, driven by network clustering and threat information. National Communication Association, 110th Annual Convention, New Orleans, LA.</span></li>
+      <li><span class="yr">2024</span><span><b>Li, Y.</b> The staying power of misinformation: The differential fidelity of information with different veracity in the diffusion landscape. International Communication Association, 74th Annual Conference, Gold Coast, Australia.</span></li>
+      <li><span class="yr">2022</span><span><b>Li, Y.</b>, Wang, Z., Redbird, B., Lumpkin, R., Archit, D., Yang, K., &amp; Cirtwill, P. The partisan divide and the pandemic: "Bias" in media coverage, media selection, and media processing. International Communication Association, 72nd Annual Conference, Paris, France.</span></li>
+      <li><span class="yr">2021</span><span>Wang, Z., <b>Li, Y.</b>, &amp; Li, Q. White House communication and its impact on the public during the pandemic. International Communication Association, 71st Annual Conference, virtual.</span></li>
+      <li><span class="yr">2016</span><span><b>Li, Y.</b> How do people with an interdependent cultural background show optimistic bias? Exploring optimistic bias about polluted haze among residents of two Chinese cities. National Communication Association, 102nd Annual Convention, Philadelphia, PA.</span></li>
+      <li><span class="yr">2015</span><span><b>Li, Y.</b> Predicting Chinese individuals' intention to have a second child: A study combining social norms theory and the theory of reasoned action. Eastern Communication Association, 106th Annual Convention, Philadelphia, PA.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="band sea" id="teaching">
+  <div class="wrap">
+    <h2>Teaching</h2>
+    <div class="teach">
+      <p class="phil">I believe a good professor helps students on the journey of learning in at least three ways: equipping them with knowledge and skills that prepare them for future endeavors in academia or industry, supporting them with empathy when they encounter obstacles on the way to success, and training them to become lifelong learners after they graduate.</p>
+      <p>Along with the Teaching Communication course I took during my graduate studies, two years of professional experience in the advertising industry and six years of college-level teaching have equipped me to put this philosophy into practice. My courses span new and social media, persuasion, advertising, and research methods.</p>
+    </div>
+
+    <h3>Courses taught as instructor of record</h3>
+    <div class="scroll">
+    <table class="stack">
+      <thead><tr><th>Course</th><th>Title</th><th>Term</th><th>Institution</th><th>Syllabus</th></tr></thead>
+      <tbody>
+        <tr><td>COMS 320</td><td>Communication and New Media</td><td class="term">Fall 2024</td><td>University of Kansas</td><td></td></tr>
+        <tr><td>COMM 3558</td><td>Social Media</td><td class="term">Summer 2023</td><td>Ohio State</td><td><a href="https://c1c42ea9-227b-42c0-9cfa-6199aabce999.filesusr.com/ugd/4a346c_348d7723fdd74c46a15a3948b97dcf17.pdf">PDF</a></td></tr>
+        <tr><td>COMM 3628</td><td>Contemporary Persuasion Theories</td><td class="term">Autumn 2022</td><td>Ohio State</td><td><a href="https://c1c42ea9-227b-42c0-9cfa-6199aabce999.filesusr.com/ugd/4a346c_240d776b0bb6417da0798107335ce89a.pdf">PDF</a></td></tr>
+        <tr><td>COMM 2367</td><td>Persuasive Communication</td><td class="term">Spring 2022</td><td>Ohio State</td><td><a href="https://c1c42ea9-227b-42c0-9cfa-6199aabce999.filesusr.com/ugd/4a346c_695eaaed0645462ba9b7c0100d4130d2.pdf">PDF</a></td></tr>
+        <tr><td>COMM 3163</td><td>Industry Research Methods</td><td class="term">Autumn 2021</td><td>Ohio State</td><td><a href="https://c1c42ea9-227b-42c0-9cfa-6199aabce999.filesusr.com/ugd/4a346c_80446e8327cc45f6850b331df5c4eeb7.pdf">PDF</a></td></tr>
+        <tr><td>COMM 3444</td><td>Advertising and Society</td><td class="term">Summer 2021</td><td>Ohio State</td><td><a href="https://c1c42ea9-227b-42c0-9cfa-6199aabce999.filesusr.com/ugd/4a346c_ae0db0510e2f4cefa84c3ce5b1f5cfca.pdf">PDF</a></td></tr>
+        <tr><td>COMM 3160</td><td>Communication Research Methods</td><td class="term">Spring 2021</td><td>Ohio State</td><td><a href="https://c1c42ea9-227b-42c0-9cfa-6199aabce999.filesusr.com/ugd/4a346c_00e59587d3924af296a3a0e3eb010d9e.pdf">PDF</a></td></tr>
+        <tr><td>COM 110</td><td>Public Speaking</td><td class="term">Fall 2015</td><td>NC State</td><td></td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>Teaching assistant</h3>
+    <div class="scroll">
+    <table class="stack">
+      <thead><tr><th>Course</th><th>Title</th><th>Term</th><th>Institution</th></tr></thead>
+      <tbody>
+        <tr><td>COMM 2540</td><td>Introduction to Communication Technologies</td><td class="term">Autumn 2020</td><td>Ohio State</td></tr>
+        <tr><td>COMM 3444</td><td>Advertising and Society</td><td class="term">Spring 2020</td><td>Ohio State</td></tr>
+        <tr><td>COMM 2331</td><td>Strategic Communication Principles</td><td class="term">Spring 2020</td><td>Ohio State</td></tr>
+        <tr><td>COM 257</td><td>Media History and Technology</td><td class="term">Spring 2015</td><td>NC State</td></tr>
+        <tr><td>COM 230</td><td>Introduction to Communication Theory</td><td class="term">Fall 2014</td><td>NC State</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>From student evaluations</h3>
+    <div class="quotes">
+      <blockquote>I absolutely loved this course! I learned so much from my professor, who seemed genuine about the coursework and both knowledgeable and filled with pride regarding her work. I would happily take this course again and recommend it to a friend. I have become more passionate about advertising because of this class, so thank you!</blockquote>
+      <blockquote>Yue is a very patient and helpful instructor. She is amazing at explaining things in a way that you will understand, and she makes the atmosphere for learning and asking questions very comfortable.</blockquote>
+      <blockquote>She works really hard to make sure her students are engaged and participating. She gives it her best and you can clearly tell the passion for teaching is there that a lot of other teachers don't have.</blockquote>
+      <blockquote>I think the professor did a great job at providing real-life examples and exposing us to modern-day articles that related to the topics we learned each week. I genuinely enjoyed this course and feel like I learned a lot.</blockquote>
+      <blockquote>Yue is one of the best TAs I have ever had. She worked so hard to make sure that we understood the material and was always helping us do the assignments. She provided great additional resources outside of what the professor gave us!</blockquote>
+      <blockquote>Amazingly structured online course that required very minimal clarification on assignments.</blockquote>
+      <blockquote>Yue Li was fantastic this semester, very helpful and kind. She was easy to get in touch with and was awesome communicating!</blockquote>
+      <blockquote>Yue is one of the best TAs I've had as a Comm student. She is very helpful and lectures well.</blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="cv">
+  <div class="wrap">
+    <h2>Curriculum vitae</h2>
+    <div class="cvcols">
+      <div>
+        <h3>Appointments</h3>
+        <ol class="tl">
+          <li><span class="yr">2024–now</span><div><b>Assistant Professor</b>, Department of Communication Studies, University of Kansas</div></li>
+          <li><span class="yr">2023–2024</span><div><b>Postdoctoral Research Fellow</b>, Annenberg School for Communication, University of Pennsylvania<p>Faculty supervisor: Joseph N. Cappella</p></div></li>
+          <li><span class="yr">2018–2023</span><div><b>Instructor of Record; Research and Teaching Assistant</b>, School of Communication, The Ohio State University</div></li>
+          <li><span class="yr">2016–2018</span><div><b>Research Executive</b>, Kantar Millward Brown (WPP Group), Shanghai<p>Led research on advertising effectiveness, campaign evaluation, and brand health tracking from proposal to final report for brands including L'Oréal, Nescafé, Pizza Hut, and Yili.</p></div></li>
+        </ol>
+      </div>
+      <div>
+        <h3>Education</h3>
+        <ol class="tl">
+          <li><span class="yr">2023</span><div><b>Ph.D., Communication</b>, The Ohio State University<p>Graduate interdisciplinary specialization in quantitative research methods. Advisors: Zheng Joyce Wang and Robert M. Bond</p></div></li>
+          <li><span class="yr">2016</span><div><b>M.S., Communication</b>, North Carolina State University<p>Advisor: Andrew Binder</p></div></li>
+          <li><span class="yr">2014</span><div><b>M.A., Communication and New Media</b>, City University of Hong Kong<p>With distinction</p></div></li>
+          <li><span class="yr">2013</span><div><b>B.A., Advertising</b>, Tianjin Foreign Studies University<p>Ranked first of 46 students</p></div></li>
+        </ol>
+      </div>
+    </div>
+    <div class="cvbar">
+      <a class="btn primary" href="https://c1c42ea9-227b-42c0-9cfa-6199aabce999.filesusr.com/ugd/4a346c_5041671b9d6348c6acdfa335b2f2574e.pdf">Download full CV (PDF)</a>
+      <a class="btn" href="https://c1c42ea9-227b-42c0-9cfa-6199aabce999.filesusr.com/ugd/4a346c_6d4ff2ef3f2947c2b61a02f9df1c9ca3.pdf">Photography and design portfolio (PDF)</a>
+      <span class="meta">CV last updated September 2024</span>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="band sea" id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <div>
+        <h2>Contact</h2>
+        <p>Department of Communication Studies<br>University of Kansas</p>
+      </div>
+      <ul>
+        <li><a href="https://coms.ku.edu/people/yue-li">Faculty profile <span>coms.ku.edu</span></a></li>
+        <li><a href="https://scholar.google.com/citations?user=ZIJgPwMAAAAJ&amp;hl=en">Google Scholar <span>scholar.google.com</span></a></li>
+        <li><a href="https://www.linkedin.com/in/yue-li-ph-d-8b64a5b5/">LinkedIn <span>linkedin.com</span></a></li>
+        <li><a href="https://twitter.com/YueEdu">X (Twitter) <span>@YueEdu</span></a></li>
+      </ul>
+    </div>
+    <p class="foot">© 2026 Yue Li</p>
+  </div>
+</footer>
+
+<script>
+{
+  const svg = document.getElementById('net');
+  const por = document.querySelector('.portrait');
+  const rnd = s => () => { s |= 0; s = s + 0x6D2B79F5 | 0; let t = Math.imul(s ^ s >>> 15, 1 | s); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+  const A = { u: .2, v: .52 }, B = { u: .79, v: .4 };
+  const col = { a: '#8fd3ff', b: '#ff5c8a' };
+  const base = [];
+  { const r = rnd(11), C = 18, R = 7;
+    for (let i = 0; i < C; i++) for (let j = 0; j < R; j++) {
+      if (r() < .2) continue;
+      base.push({ u: (i + .15 + r() * .7) / C, v: (j + .15 + r() * .7) / R });
+    } }
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const animUntil = performance.now() + 800;
+  const f = x => x.toFixed(1);
+
+  const draw = () => {
+    const W = svg.clientWidth, H = svg.clientHeight;
+    if (!W || !H) return;
+    const anim = !still && performance.now() < animUntil;
+    const pr = por.offsetWidth / 2 + 18;
+    const n = [{ x: A.u * W, y: A.v * H }, { x: B.u * W, y: B.v * H }];
+    base.forEach((q, idx) => {
+      if (W < 520 && idx % 2) return;
+      const x = q.u * W, y = q.v * H;
+      if (Math.hypot(x - n[0].x, y - n[0].y) < pr) return;
+      if (Math.hypot(x - n[1].x, y - n[1].y) < 22) return;
+      n.push({ x, y });
+    });
+    const E = new Map(), adj = n.map(() => []);
+    n.forEach((p, i) => {
+      const near = n.map((q, j) => [Math.hypot(p.x - q.x, p.y - q.y), j]).filter(e => e[1] !== i).sort((a, b) => a[0] - b[0]).slice(0, i < 2 ? 6 : 3);
+      for (const [, j] of near) {
+        const key = Math.min(i, j) + '-' + Math.max(i, j);
+        if (!E.has(key)) { E.set(key, [i, j]); adj[i].push(j); adj[j].push(i); }
+      }
+    });
+    const r = rnd(5), own = n.map(() => null), dep = n.map(() => 0), par = n.map(() => -1);
+    const reach = { a: 8, b: 6 }, prob = { a: .78, b: .7 };
+    own[0] = 'a'; own[1] = 'b';
+    let front = [0, 1];
+    for (let d = 1; front.length && d < 10; d++) {
+      const next = [];
+      for (const i of front) for (const j of adj[i]) {
+        if (own[j] || d > reach[own[i]]) continue;
+        if (r() < prob[own[i]]) { own[j] = own[i]; dep[j] = d; par[j] = i; next.push(j); }
+      }
+      front = next;
+    }
+    const T = .3;
+    const line = (p, q, rest) => '<line x1="' + f(p.x) + '" y1="' + f(p.y) + '" x2="' + f(q.x) + '" y2="' + f(q.y) + '" ' + rest + '/>';
+    const dot = (p, r, rest) => '<circle cx="' + f(p.x) + '" cy="' + f(p.y) + '" r="' + r + '" ' + rest + '/>';
+    const delay = s => ' style="animation-delay:' + s.toFixed(2) + 's"';
+    let h = '';
+    for (const [i, j] of E.values()) {
+      const c = par[j] === i ? j : par[i] === j ? i : -1;
+      if (c < 0) { h += line(n[i], n[j], 'stroke="#fff" stroke-opacity=".13"'); continue; }
+      const p = n[par[c]], q = n[c], L = f(Math.hypot(q.x - p.x, q.y - p.y));
+      const a = anim ? ' class="go" stroke-dasharray="' + L + '" stroke-dashoffset="' + L + '"' + delay(.3 + (dep[c] - 1) * T) : '';
+      h += line(p, q, 'stroke="' + col[own[c]] + '" stroke-width="1.7" stroke-opacity=".9"' + a);
+    }
+    n.forEach((p, i) => {
+      if (i === 0) return;
+      const o = own[i];
+      if (i === 1) h += dot(p, 17, 'fill="none" stroke="' + col.b + '" stroke-opacity=".45"');
+      const a = anim && o && i > 1 ? ' class="pop"' + delay(.3 + dep[i] * T) : '';
+      h += dot(p, i === 1 ? 8 : o ? 3.8 : 2.4, 'fill="' + (o ? col[o] : '#fff') + '" fill-opacity="' + (o ? 1 : .4) + '"' + a);
+    });
+    svg.innerHTML = h;
+  };
+  const netObserver = new ResizeObserver(draw);
+  netObserver.observe(svg);
+}
+</script>
+</body>
+</html>
