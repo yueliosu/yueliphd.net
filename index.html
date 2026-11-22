@@ -97,6 +97,8 @@ details p{max-width:70ch;color:var(--muted);font-size:16px}
 .pubs .yr{font-weight:600;color:var(--muted);font-size:16px}
 .pubs a{overflow-wrap:anywhere}
 .intro-pubs{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 24px}
+.pubnote{font-size:14px;color:var(--muted);margin:4px 0 18px}
+.grants li{grid-template-columns:6.5em minmax(0,1fr)}
 
 /* teaching */
 .teach{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px 56px;align-items:start}
@@ -105,7 +107,7 @@ table{width:100%;border-collapse:collapse;font-size:16px}
 th{text-align:start;font-size:14px;font-weight:500;color:var(--muted);padding:0 16px 10px 0;border-bottom:1px solid var(--rule)}
 td{padding:12px 16px 12px 0;border-bottom:1px solid var(--rule);vertical-align:top}
 td:first-child{white-space:nowrap;font-weight:600}
-td.term{white-space:nowrap}
+td.term{min-width:7.5em}
 .tut-intro{max-width:70ch}
 .tutgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px 56px;margin-top:20px}
 .tutlist{list-style:none;padding:0;margin:8px 0 0}.tutlist li{padding:12px 0;border-top:1px solid var(--rule)}
@@ -149,6 +151,7 @@ blockquote::before{content:"\201C";display:block;font-size:48px;line-height:.7;c
     <div class="links scroll">
       <a href="#research">Research</a>
       <a href="#publications">Publications</a>
+      <a href="#grants">Grants</a>
       <a href="#teaching">Teaching</a>
       <a href="#cv">CV</a>
       <a href="#contact">Contact</a>
@@ -253,22 +256,43 @@ blockquote::before{content:"\201C";display:block;font-size:48px;line-height:.7;c
 <section class="band" id="publications" style="padding-top:0">
   <div class="wrap">
     <div class="intro-pubs"><h2>Publications</h2><a href="https://scholar.google.com/citations?user=ZIJgPwMAAAAJ&amp;hl=en">All citations on Google Scholar</a></div>
+    <p class="pubnote">* Graduate student collaborator at the time of the study; † undergraduate student collaborator at the time of the study</p>
     <h3 style="margin-top:0">Peer-reviewed journal articles</h3>
     <ol class="pubs">
+      <li><span class="yr">2026</span><span>Xu, S., Gong, Z., <b>Li, Y.</b>, Zhao, Y., &amp; Ahsan, A. Building appropriate trust in artificial intelligence: Examining a dynamic trust calibration model and an intervention. <i>International Journal of Human–Computer Interaction</i>, 1–21. <a href="https://doi.org/10.1080/10447318.2026.2719173">doi.org/10.1080/10447318.2026.2719173</a></span></li>
+      <li><span class="yr">2026</span><span>Parmet, T.*, <b>Li, Y.</b>, Cappella, J., Scherer, L. D., Waters, E. A., &amp; Housten, A. J. Media reporting of the 2024 US Preventive Services Task Force mammography guideline update. <i>JAMA Network Open, 9</i>(3), e260040. <a href="https://doi.org/10.1001/jamanetworkopen.2026.0040">doi.org/10.1001/jamanetworkopen.2026.0040</a></span></li>
+      <li><span class="yr">2026</span><span><b>Li, Y.</b> From problem to practice: A conceptual framework and action agenda for health misinformation resilience. <i>Journal of Applied Communication Research, 54</i>(1), 110–116. <a href="https://doi.org/10.1080/00909882.2025.2573952">doi.org/10.1080/00909882.2025.2573952</a></span></li>
+      <li><span class="yr">2026</span><span>Xu, S., Gong, Z., <b>Li, Y.</b>, Zhao, Y.*, &amp; Huang, S.* The trust cost of AI errors: Examining cognitive and affective trust dynamics in human-AI collaboration. <i>International Journal of Human–Computer Interaction, 42</i>(10), 7666–7681. <a href="https://doi.org/10.1080/10447318.2025.2560522">doi.org/10.1080/10447318.2025.2560522</a></span></li>
       <li><span class="yr">2023</span><span>Cappella, J. N., &amp; <b>Li, Y.</b> Principles of effective message design: A review and model of content and format features. <i>Asian Communication Research, 20</i>(3), 147–174. <a href="https://doi.org/10.20879/acr.2023.20.023">doi.org/10.20879/acr.2023.20.023</a></span></li>
-      <li><span class="yr">2023</span><span><b>Li, Y.</b>, Wang, Z., &amp; Li, Q. Presidential communication during the pandemic: A longitudinal examination of its relationship with partisan perceptions and behaviors in the United States. <i>Human Communication Research</i>, hqad025. <a href="https://doi.org/10.1093/hcr/hqad025">doi.org/10.1093/hcr/hqad025</a></span></li>
+      <li><span class="yr">2023</span><span><b>Li, Y.</b>, Wang, Z., &amp; Li, Q. Presidential communication during the pandemic: A longitudinal examination of its relationship with partisan perceptions and behaviors in the United States. <i>Human Communication Research, 49</i>(4), 433–447. <a href="https://doi.org/10.1093/hcr/hqad025">doi.org/10.1093/hcr/hqad025</a></span></li>
       <li><span class="yr">2023</span><span><b>Li, Y.</b>, &amp; Bond, R. M. Examining semantic (dis)similarity in news through news organizations' ideological similarity, similarity in truthfulness, and public engagement on social media: A network approach. <i>Human Communication Research, 49</i>(1), 47–60. <a href="https://doi.org/10.1093/hcr/hqac020">doi.org/10.1093/hcr/hqac020</a></span></li>
       <li><span class="yr">2023</span><span><b>Li, Y.</b>, Gee, W., Jin, K., &amp; Bond, R. M. Examining homophily, language coordination, and analytical thinking in web-based conversations about vaccines on Reddit: Study using deep neural network language models and computer-assisted conversational analyses. <i>Journal of Medical Internet Research, 25</i>, e41882. <a href="https://doi.org/10.2196/41882">doi.org/10.2196/41882</a></span></li>
       <li><span class="yr">2022</span><span><b>Li, Y.</b>, &amp; Bond, R. M. Evidence of the persistence and consistency of social signatures. <i>Applied Network Science, 7</i>(1), 1–19. <a href="https://doi.org/10.1007/s41109-022-00448-0">doi.org/10.1007/s41109-022-00448-0</a></span></li>
     </ol>
     <h3>Conference presentations</h3>
     <ol class="pubs">
+      <li><span class="yr">2026</span><span>Xue, H., <b>Li, Y.</b>, Lyons, B. A., &amp; King, A. J. Selective public uptake of the Make America Healthy Again (MAHA) campaign across seven online platforms. Text as Data (TADA) Conference, Berkeley, CA.</span></li>
+      <li><span class="yr">2026</span><span>Xue, H., <b>Li, Y.</b>, Lyons, B. A., &amp; King, A. J. #MakeBeefGreatAgain: Politicized health lifestyle discourse and agenda melding in early #MAHA discourse. 12th International Conference on Computational Social Science (IC2S2), Burlington, VT.</span></li>
+      <li><span class="yr">2025</span><span><b>Li, Y.</b>, Gidley, N.*, Davis, N.*, &amp; Butler, A.† Toward a rhetorically informed typology for misleading politicized health information. National Communication Association, 111th Annual Convention, Denver, CO.</span></li>
+      <li><span class="yr">2025</span><span><b>Li, Y.</b>, &amp; Qin, J.* Cumulative effects of egocentric networks on attitudinal extremity about politicized health issues. National Communication Association, 111th Annual Convention, Denver, CO.</span></li>
+      <li><span class="yr">2025</span><span>Xu, S., Gong, Z., <b>Li, Y.</b>, Zhao, Y.*, &amp; Ahsan, A.* Building appropriate trust in artificial intelligence: Examining a longitudinal trust calibration model and an intervention. International Communication Association, 75th Annual Conference, Denver, CO. <b>Top Paper Award, Human-Machine Communication Division.</b></span></li>
       <li><span class="yr">2024</span><span><b>Li, Y.</b> Unveiling virality: In the context of COVID-19 vaccines, accurate information triumphs over misinformation, driven by network clustering and threat information. National Communication Association, 110th Annual Convention, New Orleans, LA.</span></li>
       <li><span class="yr">2024</span><span><b>Li, Y.</b> The staying power of misinformation: The differential fidelity of information with different veracity in the diffusion landscape. International Communication Association, 74th Annual Conference, Gold Coast, Australia.</span></li>
       <li><span class="yr">2022</span><span><b>Li, Y.</b>, Wang, Z., Redbird, B., Lumpkin, R., Archit, D., Yang, K., &amp; Cirtwill, P. The partisan divide and the pandemic: "Bias" in media coverage, media selection, and media processing. International Communication Association, 72nd Annual Conference, Paris, France.</span></li>
       <li><span class="yr">2021</span><span>Wang, Z., <b>Li, Y.</b>, &amp; Li, Q. White House communication and its impact on the public during the pandemic. International Communication Association, 71st Annual Conference, virtual.</span></li>
       <li><span class="yr">2016</span><span><b>Li, Y.</b> How do people with an interdependent cultural background show optimistic bias? Exploring optimistic bias about polluted haze among residents of two Chinese cities. National Communication Association, 102nd Annual Convention, Philadelphia, PA.</span></li>
       <li><span class="yr">2015</span><span><b>Li, Y.</b> Predicting Chinese individuals' intention to have a second child: A study combining social norms theory and the theory of reasoned action. Eastern Communication Association, 106th Annual Convention, Philadelphia, PA.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="band" id="grants" style="padding-top:0">
+  <div class="wrap">
+    <h2>Grants</h2>
+    <ol class="pubs grants">
+      <li><span class="yr">2025–2027</span><span><b>New Faculty Research Development Award</b>, University of Kansas ($9,917). PI, <i>Investigating the Effectiveness of Theory-driven AI-based Misinformation Interventions in Public Health Policies</i>.</span></li>
+      <li><span class="yr">2025–2026</span><span><b>FRESSH Program Fellow</b> (Faculty Research in the Social Sciences, Humanities, and Arts), University of Kansas ($3,000). Research support and proposal-development workshops for external funding applications.</span></li>
+      <li><span class="yr">2025–2026</span><span><b>Course Design Institute Fellow</b>, Center for Teaching Excellence, University of Kansas ($1,000). Support to develop an interactive graduate seminar in computational social science.</span></li>
     </ol>
   </div>
 </section>
@@ -309,15 +333,17 @@ blockquote::before{content:"\201C";display:block;font-size:48px;line-height:.7;c
     <table class="stack">
       <thead><tr><th>Course</th><th>Title</th><th>Term</th><th>Institution</th><th>Materials</th></tr></thead>
       <tbody>
-        <tr><td>COMS 930</td><td>Computational Research Methods</td><td class="term">Spring 2026</td><td>University of Kansas</td><td><a href="tutorials/coms930/index.html">Tutorials</a></td></tr>
-        <tr><td>COMS 320</td><td>Communication and New Media</td><td class="term">Fall 2024</td><td>University of Kansas</td><td></td></tr>
-        <tr><td>COMM 3558</td><td>Social Media</td><td class="term">Summer 2023</td><td>Ohio State</td><td><a href="files/syllabus-COMM3558.pdf">Syllabus</a></td></tr>
-        <tr><td>COMM 3628</td><td>Contemporary Persuasion Theories</td><td class="term">Autumn 2022</td><td>Ohio State</td><td><a href="files/syllabus-COMM3628.pdf">Syllabus</a></td></tr>
-        <tr><td>COMM 2367</td><td>Persuasive Communication</td><td class="term">Spring 2022</td><td>Ohio State</td><td><a href="files/syllabus-COMM2367.pdf">Syllabus</a></td></tr>
-        <tr><td>COMM 3163</td><td>Industry Research Methods</td><td class="term">Autumn 2021</td><td>Ohio State</td><td><a href="files/syllabus-COMM3163.pdf">Syllabus</a></td></tr>
-        <tr><td>COMM 3444</td><td>Advertising and Society</td><td class="term">Summer 2021</td><td>Ohio State</td><td><a href="files/syllabus-COMM3444.pdf">Syllabus</a></td></tr>
-        <tr><td>COMM 3160</td><td>Communication Research Methods</td><td class="term">Spring 2021</td><td>Ohio State</td><td><a href="files/syllabus-COMM3160.pdf">Syllabus</a></td></tr>
-        <tr><td>COM 110</td><td>Public Speaking</td><td class="term">Fall 2015</td><td>NC State</td><td></td></tr>
+        <tr><td>COMS 930</td><td>Computational Research Methods</td><td class="term">Spring&nbsp;2026</td><td>University of Kansas</td><td><a href="tutorials/coms930/index.html">Tutorials</a></td></tr>
+        <tr><td>COMS 356</td><td>Introduction to Behavioral Research Methods in Communication</td><td class="term">Spring&nbsp;2025, Fall&nbsp;2025, Spring&nbsp;2027 (upcoming)</td><td>University of Kansas</td><td></td></tr>
+        <tr><td>COMS 620</td><td>Advanced Communication and New Media</td><td class="term">Spring&nbsp;2027 (upcoming)</td><td>University of Kansas</td><td></td></tr>
+        <tr><td>COMS 320</td><td>Communication and New Media</td><td class="term">Fall&nbsp;2024, Spring&nbsp;2025, Fall&nbsp;2025, Spring&nbsp;2026</td><td>University of Kansas</td><td></td></tr>
+        <tr><td>COMM 3558</td><td>Social Media (online)</td><td class="term">Summer&nbsp;2023</td><td>Ohio State</td><td><a href="files/syllabus-COMM3558.pdf">Syllabus</a></td></tr>
+        <tr><td>COMM 3628</td><td>Contemporary Persuasion Theories (online)</td><td class="term">Autumn&nbsp;2022</td><td>Ohio State</td><td><a href="files/syllabus-COMM3628.pdf">Syllabus</a></td></tr>
+        <tr><td>COMM 2367</td><td>Persuasive Communication (online)</td><td class="term">Spring&nbsp;2022</td><td>Ohio State</td><td><a href="files/syllabus-COMM2367.pdf">Syllabus</a></td></tr>
+        <tr><td>COMM 3163</td><td>Industry Research Methods</td><td class="term">Autumn&nbsp;2021</td><td>Ohio State</td><td><a href="files/syllabus-COMM3163.pdf">Syllabus</a></td></tr>
+        <tr><td>COMM 3444</td><td>Advertising and Society (online)</td><td class="term">Summer&nbsp;2021</td><td>Ohio State</td><td><a href="files/syllabus-COMM3444.pdf">Syllabus</a></td></tr>
+        <tr><td>COMM 3160</td><td>Communication Research Methods</td><td class="term">Spring&nbsp;2021</td><td>Ohio State</td><td><a href="files/syllabus-COMM3160.pdf">Syllabus</a></td></tr>
+        <tr><td>COM 110</td><td>Public Speaking</td><td class="term">Fall&nbsp;2015</td><td>NC State</td><td></td></tr>
       </tbody>
     </table>
     </div>
@@ -327,11 +353,11 @@ blockquote::before{content:"\201C";display:block;font-size:48px;line-height:.7;c
     <table class="stack">
       <thead><tr><th>Course</th><th>Title</th><th>Term</th><th>Institution</th></tr></thead>
       <tbody>
-        <tr><td>COMM 2540</td><td>Introduction to Communication Technologies</td><td class="term">Autumn 2020</td><td>Ohio State</td></tr>
-        <tr><td>COMM 3444</td><td>Advertising and Society</td><td class="term">Spring 2020</td><td>Ohio State</td></tr>
-        <tr><td>COMM 2331</td><td>Strategic Communication Principles</td><td class="term">Spring 2020</td><td>Ohio State</td></tr>
-        <tr><td>COM 257</td><td>Media History and Technology</td><td class="term">Spring 2015</td><td>NC State</td></tr>
-        <tr><td>COM 230</td><td>Introduction to Communication Theory</td><td class="term">Fall 2014</td><td>NC State</td></tr>
+        <tr><td>COMM 2540</td><td>Introduction to Communication Technologies</td><td class="term">Autumn&nbsp;2020</td><td>Ohio State</td></tr>
+        <tr><td>COMM 3444</td><td>Advertising and Society</td><td class="term">Spring&nbsp;2020</td><td>Ohio State</td></tr>
+        <tr><td>COMM 2331</td><td>Strategic Communication Principles</td><td class="term">Autumn&nbsp;2019</td><td>Ohio State</td></tr>
+        <tr><td>COM 257</td><td>Media History and Technology</td><td class="term">Spring&nbsp;2015</td><td>NC State</td></tr>
+        <tr><td>COM 230</td><td>Introduction to Communication Theory</td><td class="term">Fall&nbsp;2014</td><td>NC State</td></tr>
       </tbody>
     </table>
     </div>

@@ -30,7 +30,8 @@ This repository is the personal academic website of **Yue Li, Ph.D.**, served at
 | Navigation | `<nav class="top">` | Links to the section ids below |
 | Hero | `<header id="top">` | Network illustration (`<svg id="net">`, drawn by the script at the bottom), then the headshot (`img.headshot`) beside the name, title, intro and buttons |
 | Research | `<section id="research">` | Three research areas, methods paragraph and tags, "Selected work" articles with `<details>` abstracts, "Team" photos (`<div class="team">` of `<figure class="photo">`) |
-| Publications | `<section id="publications">` | `<ol class="pubs">` lists; each `<li>` is `<span class="yr">YEAR</span><span>citation</span>`; Yue's name in `<b>` |
+| Publications | `<section id="publications">` | `<ol class="pubs">` lists; each `<li>` is `<span class="yr">YEAR</span><span>citation</span>`; Yue's name in `<b>`. Student collaborators are marked * (graduate) and † (undergraduate), explained in the `<p class="pubnote">` above the lists. Journal articles and conference presentations only; manuscripts under review are not listed |
+| Grants | `<section id="grants">` | Funded internal grants only (Yue's choice), newest first, in the same `<ol class="pubs grants">` format with a wider year column. Don't list unfunded proposals |
 | Teaching | `<section id="teaching">` | Philosophy with the class photo beside it, course tables (`class="stack"` makes them phone-friendly), student evaluation quotes |
 | CV | `<section id="cv">` | Appointments and education timelines (`<ol class="tl">`), CV download button |
 | Contact | `<footer id="contact">` | Contact links |
@@ -51,7 +52,6 @@ The COMS 930 tutorials are a small Quarto site. Edit the source in `tutorials/co
 - The network illustration script at the bottom of the file is self-contained. Leave it alone unless the task is about the illustration.
 
 ## Open to-do items (as of November 2026)
-1. **Update content from the current CV.** The content was copied from the old Wix site and stops at September 2024. Add publications, presentations, grants and University of Kansas courses since then, and replace `files/Yue-Li-CV.pdf`.
-2. **Check two teaching-assistant entries.** COM 257 (Spring 2015) and COM 230 (Fall 2014) are listed under NC State. The old Wix site said Ohio State, but the dates and course numbers suggest NC State.
-3. **Update the teaching statement.** It says "six years of college-level teaching," which is probably out of date.
-4. **Optional:** use the research figures in `images/` to illustrate the "Selected work" articles.
+1. **Finish updating from the current CV.** Publications, conference presentations, courses and grants were updated from Yue's December 2026 working CV on November 22, 2026. Still to do once her CV is final: the research areas and appointments, and replacing `files/Yue-Li-CV.pdf`.
+2. **Update the teaching statement.** It says "six years of college-level teaching," which is probably out of date.
+3. **Optional:** use the research figures in `images/` to illustrate the "Selected work" articles.
