@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -84,7 +84,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-5de16f5e46225c21e2daa90d340bf64f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3e3310abd0677c13e6fdcb1a2fad4225.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-e18b10332269b6bb92f2e118c31340d6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -133,9 +133,6 @@ background: #0a2540;
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -1051,7 +1048,7 @@ pre_classifier.bias     | MISSING    |
 <p>You should see the loss going down and the accuracy going up. If instead they are staying the same or oscillating, you probably need to change the fine-tuning parameters.</p>
 <div id="cell-75" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;,&quot;height&quot;:814,&quot;referenced_widgets&quot;:[&quot;84ab0f19faf048948bb02731fc51a188&quot;,&quot;5d419a4bca88479dbed648ee334dc32b&quot;,&quot;1ed7e013559c4942be2a85801a07ae99&quot;,&quot;2b769cb659b7454ea2aa8e010f8eda86&quot;,&quot;cfccc1fd147444b597dc86b0f1dc3397&quot;,&quot;bc4b31e91a544fb8ad4413abc02a0c35&quot;,&quot;163385cfb9c34b85812e33fb2d859756&quot;,&quot;28b4a549d3ef40c38f4fd6f5ef3a7b82&quot;,&quot;2e4b3de511f64bb488f4f08e22489a6b&quot;,&quot;c8c86dcef18d4fde9d27f34934e6f7fd&quot;,&quot;9ab6104b5c934ce68efb56c3827944ed&quot;,&quot;9a2e715339084e68a89a0af91051019f&quot;,&quot;94b88c0dbbcb4438bb5f866a19f57136&quot;,&quot;a7ff54d1320d4fc38c166c25ca06e333&quot;,&quot;71764d6cc17243299c34a5878ccb2e74&quot;,&quot;41d1b304a8604a6381f02edd84417fb2&quot;,&quot;06cb6d11fba7451da95fa8dbea670640&quot;,&quot;09d6aec7f4064cb8bffccb2438b107a9&quot;,&quot;40157620e1fd4dc2bb70fdfde6649a14&quot;,&quot;2aed61d16d60480b871543770b849fe8&quot;,&quot;56addd5f79a74eae89998eae7f033974&quot;,&quot;c746feeeb1224b52b858bc9f36847dfc&quot;,&quot;6954301d6671444886c4b37e36cc88c4&quot;,&quot;fce6b78c2dc343b8ba68d384344be457&quot;,&quot;c56b04dcb2e140b3a474c3547b628622&quot;,&quot;44150037defb451c9072db10277a5957&quot;,&quot;24b15d09c5394c68a6089ae8fd326361&quot;,&quot;6bd42e1222c74072ab0394f1b007d9cf&quot;,&quot;17bea295818a4f6f8dc5dd4801ee3ede&quot;,&quot;e91bf3c7401844bfab1694bc6dd140dd&quot;,&quot;bbc43595a3e548929bc69839a38e276b&quot;,&quot;6fece9f81007462cb6d48aaeecc6ae95&quot;,&quot;4b4efaa1ab5e4226a3b32a3d19fe968d&quot;]}}" data-outputid="ab96dcd6-8031-4c33-d782-f3b52c5291d9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>trainer.train()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
+<div class="cell-output cell-output-display cell-output-markdown">
 <div>
       
       <progress value="501" max="1200" style="width:300px; height:20px; vertical-align: middle;"></progress>
@@ -1105,7 +1102,7 @@ pre_classifier.bias     | MISSING    |
 <div class="cell-output cell-output-display">
 <pre><code>Writing model shards:   0%|          | 0/1 [00:00&lt;?, ?it/s]</code></pre>
 </div>
-<div class="cell-output cell-output-display">
+<div class="cell-output cell-output-display cell-output-markdown">
 <div>
       
       <progress value="1200" max="1200" style="width:300px; height:20px; vertical-align: middle;"></progress>
@@ -1245,14 +1242,12 @@ pre_classifier.bias     | MISSING    |
 <p>The following function of the <code>Trainer</code> object will run the built-in evaluation, including our <code>compute_metrics</code> function.</p>
 <div id="cell-82" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;,&quot;height&quot;:141}}" data-outputid="d3728e11-33df-4d1a-baf2-2f42f345517f">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>trainer.evaluate()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-
-    <div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<div>
       
       <progress value="80" max="80" style="width:300px; height:20px; vertical-align: middle;"></progress>
       [80/80 00:26]
     </div>
-    
 </div>
 <div class="cell-output cell-output-display" data-execution_count="36">
 <pre><code>{'eval_loss': 1.359893798828125,
@@ -1266,7 +1261,7 @@ pre_classifier.bias     | MISSING    |
 <p>But we might want to do more fine-grained analysis of the model, so we extract the predicted labels.</p>
 <div id="cell-84" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;,&quot;height&quot;:17}}" data-outputid="8d1663a7-3831-4c47-87e3-c0b39e995357">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>predicted_results <span class="op">=</span> trainer.predict(test_dataset)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
+<div class="cell-output cell-output-display cell-output-markdown">
 
 </div>
 </div>
