@@ -1,0 +1,48 @@
+---
+title: "COMS 930 tutorials"
+subtitle: "Computational Research Methods · University of Kansas"
+description: "Hands-on labs and notebooks: measuring and visualizing networks in R, and analyzing images and text with machine learning in Python."
+toc: false
+---
+
+Every tutorial can be read here with its code and output. Download the R Markdown labs to run them in RStudio, or open the Python notebooks in Google Colab to run your own copy in the browser, with nothing to install. Use the search box in the sidebar to find a function or topic across all tutorials.
+
+## Network analysis in R
+
+::: {.tut-item}
+[Lab 1: Descriptive network measures](lab-1-network-measures.md){.tut-title}\
+Degree, in- and out-degree, closeness, betweenness and eigenvector centrality in an international diplomacy network, and how the measures correlate.\
+[R · igraph · centrality]{.tut-meta}
+:::
+
+::: {.tut-item}
+[Lab 2: Network visualization](lab-2-network-visualization.md){.tut-title}\
+Visualizing networks for readers who don't know the data, using prisoner friendship, needle-sharing and other networks.\
+[R · igraph · visualization]{.tut-meta}
+:::
+
+Both labs use the Comparative Networks Dataset (McMillan, Phadke, Goist, & Denny, 2017), which is shared with enrolled students on Canvas.
+
+## Images and text in Python
+
+::: {.tut-item}
+[Visual feature extraction](visual-feature-extraction.ipynb){.tut-title}\
+How a computer turns an image into keypoints, feature vectors and clustered "visual words," the building blocks of bag-of-visual-words analysis.\
+[Python · OpenCV · scikit-learn]{.tut-meta}
+:::
+
+::: {.tut-item}
+[Facial emotion analysis with DeepFace](deepface-emotion-analysis.ipynb){.tut-title}\
+Detecting faces and their dominant emotions in YouTube video thumbnails, then turning the emotion scores into variables for analysis.\
+[Python · DeepFace · pandas]{.tut-meta}
+:::
+
+::: {.tut-item}
+[Fine-tuning BERT for classification](bert-supervised-learning.ipynb){.tut-title}\
+Fine-tuning DistilBERT with Hugging Face *transformers* to predict a book's genre from its Goodreads reviews, from train/test split to evaluation.\
+[Python · Hugging Face · supervised learning]{.tut-meta}
+:::
+
+## Credits
+
+The BERT tutorial is adapted from the AI for Humanists tutorial "Training and Fine-Tuning BERT for Classification" by Maria Antoniak, Melanie Walsh, and David Mimno.

@@ -1,0 +1,133 @@
+---
+title: "COMS 930 Lab 1: Descriptive Network Measures"
+output: pdf_document
+date: "2026-01-30"
+---
+
+From this week's module, please download the iGraph data. I have also shared the description of the Comparative Networks Dataset (McMillan, Phadke, Goist, & Denny, 2017) on Canvas. There is a PDF file that explains the data collection procedures and an Excel file that has summaries of the data that are included. 
+
+## Reading in Data
+
+The data itself in an R formatted data file that contains each of the data files in igraph format (iGraph_Data.rdata). You should be able to double click on the file to open it or use a line like the following to open it if you change the file path to where you have the file stored on your local device. 
+```{r}
+# load the igraph library
+library(igraph)
+# remember to load other libraries you need as well
+library(dplyr)
+
+# set up working directory (Session --> Set Working Directory --> Choose Directory)
+setwd("~/path/to/your/lab/folder")  # change this to your directory path
+
+# read in the list of igraph data objects
+load("iGraph_Data.rdata")
+```
+
+This should read in an object called igraph_data_list into your session of R. You can check that it worked with an ls() command. Once you have the data read in, you will be able to access the actual networks. They are stored in an R data type called a list. A list is R's way of collecting a set of R objects that may have different types. You can access elements of a list using double square brackets with the number of the corresponding element of the list that you want to access. Each element of the list contains three things: the network, any node-level data (i.e., individual-level variables), and metadata about the network.
+
+For this homework, I will ask you to work with diplomacy data, which is number 18 in the list. This network has a node level data file that gives information about the nodes. You can access that in the following code:
+
+```{r}
+my_net <- igraph_data_list[[18]]$network
+my_net_node_data <- igraph_data_list[[18]]$node_level_data
+V(my_net)$name <- my_net_node_data$COUNTRY
+```
+
+In the above, the first line turns the network in the 18th position in the list into an object named my_net. The second line creates a separate object called my_net_node_data that has the node-level data associated with the network that is 18th in the list. Finally, the third line changes the names of the vertices in the my_net network object to be the values in the my_net_node_data$COUNTRY column from the node-level data. There are other node-level attributes that you could add to the network with similar code if you so wished. By changing the name of the nodes to be the actual country names some of the parts of the assignment should be a little easier, but it is not actually necessary to do this.
+
+## Questions for you to answer
+Using the Diplomacy network, please answer the following:
+1. What is the mean, median, and standard deviation of degree (without worrying about directionality)? What are the top 5 countries in terms of degree?
+2. What is the mean, median, and standard deviation of in-degree? What are the top 5 countries in terms of in-degree?
+3. What is the mean, median, and standard deviation of out-degree? What are the top 5 countries in terms of out-degree?
+4. What is the mean, median, and standard deviation of closeness centrality? What are the top 5 countries in terms of closeness centrality?
+5. What is the mean, median, and standard deviation of betweenness centrality? What are the top 5 countries in terms of betweenness centrality?
+6. What is the mean, median, and standard deviation of eigenvector centrality? What are the top 5 countries in terms of eigenvector centrality?
+7. What is the Pearson correlation between these various scores? Make a table that reports the correlation between each of degree, in-degree, outdegree, closeness centrality, betweenness centrality, and eigenvector centrality.
+
+Write a few sentences that describe these values, noting any that are particularly high or particularly low and give a brief explanation for why that might be. Please give an explanation of at least two of the values, though you are free to describe more than two if you wish.
+Please share your code, either as an appendix or as a separate file, in addition to your assignment.
+
+## Below are code that may be useful for you to answer the questions above
+
+```{r} 
+# Q1. Degree (ignore direction)
+deg_all <- degree(my_net, mode = "all")
+
+mean(deg_all); median(deg_all); sd(deg_all)
+
+deg_all_top5 <- sort(deg_all, decreasing = TRUE)[1:5]
+deg_all_top5
+names(deg_all_top5) 
+
+```
+
+```{r} 
+# Q2. In-degree
+deg_in <- degree(my_net, mode = "in")
+
+mean(deg_in); median(deg_in); sd(deg_in)
+
+deg_in_top5 <- sort(deg_in, decreasing = TRUE)[1:5]
+deg_in_top5
+names(deg_in_top5)
+
+```
+
+```{r}
+# Q3. Out-degree
+deg_out <- degree(my_net, mode = "out")
+
+mean(deg_out); median(deg_out); sd(deg_out)
+
+deg_out_top5 <- sort(deg_out, decreasing = TRUE)[1:5]
+deg_out_top5
+names(deg_out_top5)
+
+```
+
+```{r}
+# Q4. Closeness centrality (mode = "all" treats ties as undirected for distances)
+close_all <- closeness(my_net, mode = "all", normalized = TRUE)
+
+mean(close_all); median(close_all); sd(close_all)
+
+close_top5 <- sort(close_all, decreasing = TRUE)[1:5]
+close_top5
+names(close_top5)
+```
+
+```{r}
+# Q5. Betweenness centrality
+between <- betweenness(my_net, directed = TRUE, normalized = TRUE)
+
+mean(between); median(between); sd(between)
+
+between_top5 <- sort(between, decreasing = TRUE)[1:5]
+between_top5
+names(between_top5)
+```
+
+```{r}
+# Q6. Eigenvector centrality
+eig <- eigen_centrality(my_net, directed = TRUE, scale = TRUE)$vector
+
+mean(eig); median(eig); sd(eig)
+
+eig_top5 <- sort(eig, decreasing = TRUE)[1:5]
+eig_top5
+names(eig_top5)
+```
+
+```{r}
+## Q7. Correlations between measures
+measures_mat <- cbind(
+  degree      = as.numeric(deg_all),
+  indegree    = as.numeric(deg_in),
+  outdegree   = as.numeric(deg_out),
+  closeness   = as.numeric(close_all),
+  betweenness = as.numeric(between),
+  eigenvector = as.numeric(eig)
+)
+
+cor(measures_mat, use = "pairwise.complete.obs", method = "pearson")
+```

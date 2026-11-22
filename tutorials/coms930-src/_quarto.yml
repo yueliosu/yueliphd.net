@@ -1,0 +1,62 @@
+project:
+  type: website
+  output-dir: ../coms930
+  post-render: copy-downloads.py
+  render:
+    - index.qmd
+    - lab-1-network-measures.md
+    - lab-2-network-visualization.md
+    - visual-feature-extraction.ipynb
+    - deepface-emotion-analysis.ipynb
+    - bert-supervised-learning.ipynb
+
+website:
+  title: "COMS 930 Tutorials"
+  site-url: "https://yueliphd.net/tutorials/coms930/"
+  favicon: favicon.svg
+  page-navigation: true
+  bread-crumbs: false
+  navbar:
+    background: "#0a2540"
+    foreground: "#ffffff"
+    right:
+      - text: "Yue Li, Ph.D."
+        href: "https://yueliphd.net/"
+      - text: "Back to Teaching"
+        href: "https://yueliphd.net/#teaching"
+  sidebar:
+    style: docked
+    search: true
+    contents:
+      - text: "Overview"
+        href: index.qmd
+      - section: "Network analysis in R"
+        contents:
+          - lab-1-network-measures.md
+          - lab-2-network-visualization.md
+      - section: "Images and text in Python"
+        contents:
+          - visual-feature-extraction.ipynb
+          - deepface-emotion-analysis.ipynb
+          - bert-supervised-learning.ipynb
+  page-footer:
+    left: "© 2026 Yue Li · Shared for teaching and learning. If you use or adapt these materials, please credit Yue Li and the original sources noted on each page."
+    right:
+      - text: "yueliphd.net"
+        href: "https://yueliphd.net/"
+
+format:
+  html:
+    theme: [cosmo, theme.scss]
+    toc: true
+    toc-title: "On this page"
+    code-copy: true
+    code-overflow: wrap
+    highlight-style: github
+    title-block-banner: "#0a2540"
+    title-block-banner-color: "#ffffff"
+    include-in-header: fonts.html
+    smooth-scroll: true
+
+execute:
+  enabled: false

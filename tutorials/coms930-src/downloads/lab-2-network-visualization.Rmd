@@ -1,0 +1,51 @@
+---
+title: "COMS 930 Lab 2: Network Visualization"
+output: pdf_document
+date: "2026-02-05"
+---
+
+From last week's module, please download the iGraph data. I have also shared the description of the Comparative Networks Dataset (McMillan, Phadke, Goist, & Denny, 2017) on Canvas. There is a PDF file that explains the data collection procedures and an Excel file that has summaries of the data that are included. 
+
+## Reading in Data
+
+The data itself in an R formatted data file that contains each of the data files in igraph format (iGraph_Data.rdata). You should be able to double click on the file to open it or use a line like the following to open it if you change the file path to where you have the file stored on your local device. 
+```{r}
+# load the igraph library
+library(igraph)
+# remember to load other libraries you need as well
+library(dplyr)
+
+# set up working directory (Session --> Set Working Directory --> Choose Directory)
+setwd("~/path/to/your/lab/folder")  # change this to your directory path
+
+# read in the list of igraph data objects
+load("iGraph_Data.rdata")
+```
+
+This should read in an object called igraph_data_list into your session of R. You can check that it worked with an ls() command. Once you have the data read in, you will be able to access the actual networks. They are stored in an R data type called a list. A list is R's way of collecting a set of R objects that may have different types. You can access elements of a list using double square brackets with the number of the corresponding element of the list that you want to access. Each element of the list contains three things: the network, any node-level data (i.e., individual-level variables), and metadata about the network. For now, the most important thing would be to access particular networks. Imagine you wanted to extract from the list the academic friendship network 1 (there are two of them in the data). You would use a process like:
+
+```{r}
+# see the names of all of the networks
+names(igraph_data_list)
+
+# the academic friendship 1 network is number 19 in the list
+# let's see what it is in it
+summary(igraph_data_list[[19]])
+
+# this extracts the network
+acad_friends_net <- igraph_data_list[[19]]$network
+```
+
+In the above, line 2 shows the names of all of the networks in the list. This should correspond to the names in the Excel file. Line 6 gives a summary of all of the elements of the list at position 19, which is the network we are looking for. Finally, line 9 takes the network object that is in the 19th position in the list and sets it to a new object that is called acad_friends_net. That is an igraph object that can be used in the ways we have been doing in class.
+
+## Questions for you to answer
+Using a process like that described above, select
+1. the prisoner friendships network (number 22)
+2. the needle sharing 2 network (number 124)
+3. a third network of your choosing
+
+For each of the above, create a visualization of the network that helps to display the data for a reader who is unfamiliar with these data. For each of your visualizations, write a one paragraph description of the network and the visualization, pointing out the aspects of the visualization that you might want to draw a reader’s attention to. These descriptions do not need to go into a great deal of depth on the data (i.e., no need to read the full paper that describes the
+data). Please share your code, either as an appendix or as a separate file, in addition to your assignment.
+
+Tips:
+You may find section #4 in Dr. Ognyanova's tutorial on network visualization very helpful:) You can find the link to it in this week's module on Canvas. 

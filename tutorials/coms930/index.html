@@ -1,147 +1,799 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>COMS 930 Tutorials | Yue Li, Ph.D.</title>
-<meta name="description" content="Hands-on tutorials from COMS 930 Computational Research Methods at the University of Kansas: network analysis in R, and image and text analysis in Python.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a2540'/%3E%3Cpath d='M9 22 16 10l7 12' stroke='%238fd3ff' stroke-width='2' fill='none'/%3E%3Ccircle cx='16' cy='10' r='3' fill='%23ff5c8a'/%3E%3Ccircle cx='9' cy='22' r='2.5' fill='%238fd3ff'/%3E%3Ccircle cx='23' cy='22' r='2.5' fill='%238fd3ff'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<style>
-/* Same look as the main site: deep sea #0a2540, sky #8fd3ff, pink #ff5c8a, Hanken Grotesk.
-   Layout: sea header strip, then one white strip per language, each tutorial a row with its links. */
-:root{color-scheme:light dark;--bg:light-dark(#fff,#0b2a49);--ink:light-dark(#0a2540,#eef4fb);--muted:light-dark(#4a5e79,#a9bed6);--rule:light-dark(#d9e2ec,#26496f);--link:light-dark(#0a5fae,#8fd3ff);--sea:#0a2540;--sky:#8fd3ff;--pink:#ff5c8a;--chip:light-dark(#eef4fb,#13355b)}
-:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
-*{box-sizing:border-box;min-width:0}
-body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 "Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:clip}
-a{color:var(--link);text-underline-offset:3px;text-decoration-thickness:1px}
-a:focus-visible{outline:2px solid var(--pink);outline-offset:3px;border-radius:3px}
-.band{padding:clamp(40px,5.5vw,80px) max(5vw,16px)}
-.wrap{max-width:1100px;margin:0 auto}
-.top{background:var(--sea);color:#fff;padding:0 max(5vw,16px)}
-.navrow{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0 24px;min-height:64px}
-.top a{color:#cfe0f1;text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
-.top a:hover{color:#fff}
-.top .brand{color:#fff;font-weight:600}
-.hero{background:var(--sea);color:#fff;padding-top:clamp(24px,4vw,56px);--muted:#a9bed6;--link:#8fd3ff}
-.kicker{font-size:17px;color:#a9bed6;margin:0 0 10px}
-h1{font-weight:300;font-size:clamp(40px,6vw,64px);line-height:1.05;margin:0 0 18px;text-wrap:balance}
-.lead{font-size:20px;line-height:1.5;max-width:60ch;color:#d3e2f1;margin:0}
-.meta-row{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:22px;font-size:15px;color:#a9bed6}
-h2{font-weight:300;font-size:clamp(28px,3.6vw,40px);line-height:1.1;margin:0 0 6px}
-.sub{color:var(--muted);margin:0 0 24px}
-.tut{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px 40px;align-items:center;padding:26px 0;border-top:1px solid var(--rule)}
-.tut:last-child{border-bottom:1px solid var(--rule)}
-.tut h3{font-size:21px;font-weight:500;line-height:1.3;margin:0 0 6px}
-.tut h3 a{color:var(--ink);text-decoration-color:var(--rule)}
-.tut h3 a:hover{text-decoration-color:var(--link)}
-.tut p{margin:0;max-width:64ch}
-.tags{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin:10px 0 0}
-.tags li{background:var(--chip);border-radius:999px;padding:2px 11px;font-size:14px}
-.note{font-size:15px;color:var(--muted);margin-top:8px!important}
-.actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
-.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--rule);border-radius:999px;color:var(--ink);text-decoration:none;font-size:16px;white-space:nowrap}
-.btn:hover{border-color:var(--link)}
-.btn.primary{background:var(--sea);border-color:var(--sea);color:#fff;font-weight:600}
-:root[data-theme=dark] .btn.primary{background:var(--sky);border-color:var(--sky);color:var(--sea)}
-@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .btn.primary{background:var(--sky);border-color:var(--sky);color:var(--sea)}}
-.strip+.strip{padding-top:0}
-.foot{background:var(--sea);color:#a9bed6;font-size:15px}
-.foot p{margin:0 0 8px;max-width:75ch}
-.foot a{color:#8fd3ff}
-@media(max-width:700px){.tut{grid-template-columns:minmax(0,1fr)}.actions{justify-content:flex-start}}
-</style>
-</head>
-<body>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-<nav class="top" aria-label="Main">
-  <div class="wrap navrow">
-    <a class="brand" href="../../index.html">Yue Li, Ph.D.</a>
-    <a href="../../index.html#teaching">&larr; Back to Teaching</a>
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Hands-on labs and notebooks: measuring and visualizing networks in R, and analyzing images and text with machine learning in Python.">
+
+<title>COMS 930 tutorials – COMS 930 Tutorials</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./lab-1-network-measures.html" rel="next">
+<link href="./favicon.svg" rel="icon" type="image/svg+xml">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-5de16f5e46225c21e2daa90d340bf64f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-3e3310abd0677c13e6fdcb1a2fad4225.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<style>
+
+      .quarto-title-block .quarto-title-banner h1,
+      .quarto-title-block .quarto-title-banner h2,
+      .quarto-title-block .quarto-title-banner h3,
+      .quarto-title-block .quarto-title-banner h4,
+      .quarto-title-block .quarto-title-banner h5,
+      .quarto-title-block .quarto-title-banner h6
+      {
+        color: #ffffff;
+      }
+
+      .quarto-title-block .quarto-title-banner {
+        color: #ffffff;
+background: #0a2540;
+      }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed fullcontent quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">COMS 930 Tutorials</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://yueliphd.net/"> 
+<span class="menu-text">Yue Li, Ph.D.</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://yueliphd.net/#teaching"> 
+<span class="menu-text">Back to Teaching</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+            <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <a class="flex-grow-1 no-decor" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+          <h1 class="quarto-secondary-nav-title">COMS 930 tutorials</h1>
+        </a>     
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title d-none d-lg-block">COMS 930 tutorials</h1>
+            <p class="subtitle lead">Computational Research Methods · University of Kansas</p>
+                  <div>
+        <div class="description">
+          Hands-on labs and notebooks: measuring and visualizing networks in R, and analyzing images and text with machine learning in Python.
+        </div>
+      </div>
+                </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto" aria-label="Section">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Network analysis in R</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-1-network-measures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 1: Descriptive network measures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-2-network-visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 2: Network visualization</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Images and text in Python</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./visual-feature-extraction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visual feature extraction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./deepface-emotion-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Facial emotion analysis with DeepFace</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bert-supervised-learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fine-tuning BERT for classification</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content" tabindex="-1">
+
+
+
+
+
+<p>Every tutorial can be read here with its code and output. Download the R Markdown labs to run them in RStudio, or open the Python notebooks in Google Colab to run your own copy in the browser, with nothing to install. Use the search box in the sidebar to find a function or topic across all tutorials.</p>
+<section id="network-analysis-in-r" class="level2">
+<h2 class="anchored" data-anchor-id="network-analysis-in-r">Network analysis in R</h2>
+<div class="tut-item">
+<p><a href="./lab-1-network-measures.html" class="tut-title">Lab 1: Descriptive network measures</a><br>
+Degree, in- and out-degree, closeness, betweenness and eigenvector centrality in an international diplomacy network, and how the measures correlate.<br>
+<span class="tut-meta">R · igraph · centrality</span></p>
+</div>
+<div class="tut-item">
+<p><a href="./lab-2-network-visualization.html" class="tut-title">Lab 2: Network visualization</a><br>
+Visualizing networks for readers who don’t know the data, using prisoner friendship, needle-sharing and other networks.<br>
+<span class="tut-meta">R · igraph · visualization</span></p>
+</div>
+<p>Both labs use the Comparative Networks Dataset (McMillan, Phadke, Goist, &amp; Denny, 2017), which is shared with enrolled students on Canvas.</p>
+</section>
+<section id="images-and-text-in-python" class="level2">
+<h2 class="anchored" data-anchor-id="images-and-text-in-python">Images and text in Python</h2>
+<div class="tut-item">
+<p><a href="./visual-feature-extraction.html" class="tut-title">Visual feature extraction</a><br>
+How a computer turns an image into keypoints, feature vectors and clustered “visual words,” the building blocks of bag-of-visual-words analysis.<br>
+<span class="tut-meta">Python · OpenCV · scikit-learn</span></p>
+</div>
+<div class="tut-item">
+<p><a href="./deepface-emotion-analysis.html" class="tut-title">Facial emotion analysis with DeepFace</a><br>
+Detecting faces and their dominant emotions in YouTube video thumbnails, then turning the emotion scores into variables for analysis.<br>
+<span class="tut-meta">Python · DeepFace · pandas</span></p>
+</div>
+<div class="tut-item">
+<p><a href="./bert-supervised-learning.html" class="tut-title">Fine-tuning BERT for classification</a><br>
+Fine-tuning DistilBERT with Hugging Face <em>transformers</em> to predict a book’s genre from its Goodreads reviews, from train/test split to evaluation.<br>
+<span class="tut-meta">Python · Hugging Face · supervised learning</span></p>
+</div>
+</section>
+<section id="credits" class="level2">
+<h2 class="anchored" data-anchor-id="credits">Credits</h2>
+<p>The BERT tutorial is adapted from the AI for Humanists tutorial “Training and Fine-Tuning BERT for Classification” by Maria Antoniak, Melanie Walsh, and David Mimno.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/yueliphd\.net\/tutorials\/coms930\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+      }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
+          if (lineIds.length > 0) {
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            placeBand(gutterDiv, el, lastEl);
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+<nav class="page-navigation" aria-label="Page">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./lab-1-network-measures.html" class="pagination-link" aria-label="Lab 1: Descriptive network measures">
+        <span class="nav-page-text">Lab 1: Descriptive network measures</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
-
-<header class="band hero">
-  <div class="wrap">
-    <p class="kicker">COMS 930 Computational Research Methods · University of Kansas</p>
-    <h1>Course tutorials</h1>
-    <p class="lead">Hands-on labs and notebooks from my computational methods course: measuring and visualizing networks in R, and analyzing images and text with machine learning in Python.</p>
-    <div class="meta-row"><span>2 R Markdown labs</span><span>3 Python notebooks for Google Colab</span></div>
-  </div>
-</header>
-
-<main>
-<section class="band strip" aria-labelledby="r">
-  <div class="wrap">
-    <h2 id="r">Network analysis in R</h2>
-    <p class="sub">Open the lab to read it with code and output, or download the R Markdown file to run it in RStudio.</p>
-
-    <article class="tut">
-      <div>
-        <h3><a href="lab-1-network-measures.html">Lab 1: Descriptive network measures</a></h3>
-        <p>Degree, in- and out-degree, closeness, betweenness and eigenvector centrality in an international diplomacy network, and how the measures correlate.</p>
-        <ul class="tags"><li>R</li><li>igraph</li><li>Centrality</li></ul>
-      </div>
-      <div class="actions"><a class="btn primary" href="lab-1-network-measures.html">Read</a><a class="btn" href="lab-1-network-measures.Rmd" download>Download .Rmd</a></div>
-    </article>
-
-    <article class="tut">
-      <div>
-        <h3><a href="lab-2-network-visualization.html">Lab 2: Network visualization</a></h3>
-        <p>Visualizing networks for readers who don't know the data, using prisoner friendship, needle-sharing and other networks.</p>
-        <ul class="tags"><li>R</li><li>igraph</li><li>Visualization</li></ul>
-      </div>
-      <div class="actions"><a class="btn primary" href="lab-2-network-visualization.html">Read</a><a class="btn" href="lab-2-network-visualization.Rmd" download>Download .Rmd</a></div>
-    </article>
-    <p class="note">Both labs use the Comparative Networks Dataset (McMillan, Phadke, Goist, &amp; Denny, 2017), which is shared with enrolled students on Canvas.</p>
-  </div>
-</section>
-
-<section class="band strip" aria-labelledby="py">
-  <div class="wrap">
-    <h2 id="py">Images and text in Python</h2>
-    <p class="sub">Read the notebook here, or open it in Google Colab to run your own copy in the browser. Nothing to install.</p>
-
-    <article class="tut">
-      <div>
-        <h3><a href="visual-feature-extraction.html">Visual feature extraction</a></h3>
-        <p>How a computer turns an image into keypoints, feature vectors and clustered "visual words," the building blocks of bag-of-visual-words analysis.</p>
-        <ul class="tags"><li>Python</li><li>OpenCV</li><li>scikit-learn</li></ul>
-        <p class="note">Runs as is with an example image from Wikimedia Commons.</p>
-      </div>
-      <div class="actions"><a class="btn primary" href="visual-feature-extraction.html">Read</a><a class="btn" href="https://colab.research.google.com/github/yueliosu/yueliphd.net/blob/main/tutorials/coms930/visual-feature-extraction.ipynb">Open in Colab</a><a class="btn" href="visual-feature-extraction.ipynb" download>Download .ipynb</a></div>
-    </article>
-
-    <article class="tut">
-      <div>
-        <h3><a href="deepface-emotion-analysis.html">Facial emotion analysis with DeepFace</a></h3>
-        <p>Detecting faces and their dominant emotions in YouTube video thumbnails, then turning the emotion scores into variables for analysis.</p>
-        <ul class="tags"><li>Python</li><li>DeepFace</li><li>pandas</li></ul>
-        <p class="note">Uses a course dataset of 2024 YouTube videos, which isn't included here.</p>
-      </div>
-      <div class="actions"><a class="btn primary" href="deepface-emotion-analysis.html">Read</a><a class="btn" href="https://colab.research.google.com/github/yueliosu/yueliphd.net/blob/main/tutorials/coms930/deepface-emotion-analysis.ipynb">Open in Colab</a><a class="btn" href="deepface-emotion-analysis.ipynb" download>Download .ipynb</a></div>
-    </article>
-
-    <article class="tut">
-      <div>
-        <h3><a href="bert-supervised-learning.html">Fine-tuning BERT for classification</a></h3>
-        <p>Fine-tuning DistilBERT with Hugging Face <i>transformers</i> to predict a book's genre from its Goodreads reviews, from train/test split to evaluation.</p>
-        <ul class="tags"><li>Python</li><li>Hugging Face</li><li>Supervised learning</li></ul>
-        <p class="note">Downloads its data from the UCSD Book Graph; use a GPU runtime in Colab. Adapted from the AI for Humanists tutorial by Maria Antoniak, Melanie Walsh, and David Mimno.</p>
-      </div>
-      <div class="actions"><a class="btn primary" href="bert-supervised-learning.html">Read</a><a class="btn" href="https://colab.research.google.com/github/yueliosu/yueliphd.net/blob/main/tutorials/coms930/bert-supervised-learning.ipynb">Open in Colab</a><a class="btn" href="bert-supervised-learning.ipynb" download>Download .ipynb</a></div>
-    </article>
-  </div>
-</section>
-</main>
-
-<footer class="band foot">
-  <div class="wrap">
-    <p>These materials are shared for teaching and learning. If you use or adapt them, please credit Yue Li and the original sources noted above.</p>
-    <p><a href="../../index.html">yueliphd.net</a></p>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Yue Li · Shared for teaching and learning. If you use or adapt these materials, please credit Yue Li and the original sources noted on each page.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://yueliphd.net/">
+<p>yueliphd.net</p>
+</a>
+  </li>  
+</ul>
+    </div>
   </div>
 </footer>
-</body>
-</html>
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
