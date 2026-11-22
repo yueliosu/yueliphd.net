@@ -7,7 +7,18 @@ This repository is the personal academic website of **Yue Li, Ph.D.**, served at
 - GitHub Pages serves the `main` branch from the repository root. Every push to `main` goes live within a minute or two.
 - `CNAME` holds the custom domain (`yueliphd.net`). Don't delete or rename it, or the domain stops working.
 - `.nojekyll` tells GitHub Pages to serve files as they are. Keep it.
-- Put PDFs (CV, syllabi, portfolio) in `files/` and images in `images/`, and link to them with relative paths such as `files/cv.pdf`.
+- PDFs live in `files/` and images in `images/`. Link to them with relative paths such as `files/Yue-Li-CV.pdf`.
+
+## Files
+| Path | What it is | Used on the page |
+|---|---|---|
+| `files/Yue-Li-CV.pdf` | CV, updated September 2024. Replace it with the current CV under the same name so the links keep working, and update the "CV last updated" note in the CV section. | Hero and CV buttons |
+| `files/portfolio.pdf` | Advertising photography and graphic design portfolio from undergrad | CV section |
+| `files/syllabus-COMM*.pdf` | Ohio State syllabi (COMM 2367, 3160, 3163, 3444, 3558, 3628) | Teaching table |
+| `images/headshot.jpg` | Square 800×800 crop of the headshot | Hero portrait |
+| `images/headshot-original.jpg` | Full-size original headshot | No |
+| `images/teaching.jpg` | Teaching photo from the old site | No |
+| `images/fig-*.jpg`, `images/fig-*.png` | Figures from the three "Selected work" papers (semantic similarity, EPPM, social signatures) | No (could illustrate Selected work) |
 
 ## Page structure (in `index.html`)
 | Section | Element / id | Notes |
@@ -29,9 +40,8 @@ This repository is the personal academic website of **Yue Li, Ph.D.**, served at
 - The network illustration script at the bottom of the file is self-contained. Leave it alone unless the task is about the illustration.
 
 ## Open to-do items (as of November 2026)
-1. **Update content from the current CV.** The content was copied from the old Wix site and stops at September 2024. Add publications, presentations, grants and University of Kansas courses since then.
-2. **Replace the portrait placeholder.** The hero shows a "YL" monogram inside `<div class="portrait">`. Add the photo as `images/headshot.jpg` (square, at least 600×600) and replace the letters with `<img src="images/headshot.jpg" alt="Yue Li">`.
-3. **Move files off Wix.** The CV, syllabi and portfolio links point to `filesusr.com` (Wix). Download each one, add it to `files/` and update the links. Do this before the old Wix site is deleted, or the links break. The old addresses are listed in `WIX-FILES.md`.
-4. **Add an email address** in the Contact section once Yue chooses one.
-5. **Check two teaching-assistant entries.** COM 257 (Spring 2015) and COM 230 (Fall 2014) are listed under NC State. The old Wix site said Ohio State, but the dates and course numbers suggest NC State.
-6. **Update the teaching statement.** It says "six years of college-level teaching," which is probably out of date.
+1. **Update content from the current CV.** The content was copied from the old Wix site and stops at September 2024. Add publications, presentations, grants and University of Kansas courses since then, and replace `files/Yue-Li-CV.pdf`.
+2. **Add an email address** in the Contact section once Yue chooses one.
+3. **Check two teaching-assistant entries.** COM 257 (Spring 2015) and COM 230 (Fall 2014) are listed under NC State. The old Wix site said Ohio State, but the dates and course numbers suggest NC State.
+4. **Update the teaching statement.** It says "six years of college-level teaching," which is probably out of date.
+5. **Optional:** use the research figures in `images/` to illustrate the "Selected work" articles.

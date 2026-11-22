@@ -22,5 +22,8 @@ DNS records:
 | A | @ | 185.199.111.153 |
 | CNAME | www | *github-username*.github.io |
 
+## Files
+PDFs (CV, syllabi, portfolio) are in `files/` and images are in `images/`. To update the CV, replace `files/Yue-Li-CV.pdf` with a new file of the same name.
+
 ## To do
-See the list at the end of `AGENTS.md`. The files that still need to be moved off Wix are listed in `WIX-FILES.md`.
+See the list at the end of `AGENTS.md`.
