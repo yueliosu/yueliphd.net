@@ -105,7 +105,11 @@ th{text-align:start;font-size:14px;font-weight:500;color:var(--muted);padding:0 
 td{padding:12px 16px 12px 0;border-bottom:1px solid var(--rule);vertical-align:top}
 td:first-child{white-space:nowrap;font-weight:600}
 td.term{white-space:nowrap}
-.tutorials{display:flex;flex-wrap:wrap;align-items:center;gap:16px 32px}.tutorials p{margin:0;max-width:62ch}
+.tut-intro{max-width:70ch}
+.tutgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px 56px;margin-top:20px}
+.tutlist{list-style:none;padding:0;margin:8px 0 0}.tutlist li{padding:12px 0;border-top:1px solid var(--rule)}
+.tutlist a.t{color:#fff;font-weight:500;font-size:18px;text-decoration-color:rgba(143,211,255,.45)}.tutlist a.t:hover{text-decoration-color:var(--sky)}
+.tutlist .d{display:block;color:var(--muted);font-size:15px;margin-top:2px}
 .quotes{columns:2 300px;column-gap:48px;margin-top:8px}
 blockquote{break-inside:avoid;margin:0 0 30px;color:#e3edf7}
 blockquote::before{content:"\201C";display:block;font-size:48px;line-height:.7;color:var(--pink);height:22px}
@@ -281,10 +285,24 @@ blockquote::before{content:"\201C";display:block;font-size:48px;line-height:.7;c
       <figure class="photo"><img src="images/class-undergrads.jpg" alt="Yue Li with a group of undergraduate students in a classroom" width="1600" height="900" loading="lazy"><figcaption>With my undergraduate students</figcaption></figure>
     </div>
 
-    <h3>Tutorials</h3>
-    <div class="tutorials">
-      <p>Hands-on labs and notebooks from COMS 930 Computational Research Methods: measuring and visualizing networks in R, and analyzing images and text with machine learning in Python (visual features, DeepFace, BERT).</p>
-      <a class="btn" href="tutorials/coms930/index.html">Browse the COMS 930 tutorials</a>
+    <h3>COMS 930 tutorials</h3>
+    <p class="tut-intro">Hands-on labs and notebooks from COMS 930 Computational Research Methods. Read each one with its code and output, download the R labs for RStudio, or open the Python notebooks in Google Colab. <a href="tutorials/coms930/index.html">All tutorials, with search</a></p>
+    <div class="tutgrid">
+      <div>
+        <div class="meta">Network analysis in R</div>
+        <ul class="tutlist">
+          <li><a class="t" href="tutorials/coms930/lab-1-network-measures.html">Lab 1: Descriptive network measures</a><span class="d">Centrality measures in a diplomacy network · <a href="tutorials/coms930/lab-1-network-measures.Rmd">.Rmd</a></span></li>
+          <li><a class="t" href="tutorials/coms930/lab-2-network-visualization.html">Lab 2: Network visualization</a><span class="d">Visualizing networks for readers new to the data · <a href="tutorials/coms930/lab-2-network-visualization.Rmd">.Rmd</a></span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="meta">Images and text in Python</div>
+        <ul class="tutlist">
+          <li><a class="t" href="tutorials/coms930/visual-feature-extraction.html">Visual feature extraction</a><span class="d">Keypoints, feature vectors and visual words · <a href="https://colab.research.google.com/github/yueliosu/yueliphd.net/blob/main/tutorials/coms930/visual-feature-extraction.ipynb">Open in Colab</a></span></li>
+          <li><a class="t" href="tutorials/coms930/deepface-emotion-analysis.html">Facial emotion analysis with DeepFace</a><span class="d">Emotions in YouTube video thumbnails · <a href="https://colab.research.google.com/github/yueliosu/yueliphd.net/blob/main/tutorials/coms930/deepface-emotion-analysis.ipynb">Open in Colab</a></span></li>
+          <li><a class="t" href="tutorials/coms930/bert-supervised-learning.html">Fine-tuning BERT for classification</a><span class="d">Predicting book genre from Goodreads reviews · <a href="https://colab.research.google.com/github/yueliosu/yueliphd.net/blob/main/tutorials/coms930/bert-supervised-learning.ipynb">Open in Colab</a></span></li>
+        </ul>
+      </div>
     </div>
 
     <h3>Courses taught as instructor of record</h3>

@@ -20,7 +20,8 @@ This repository is the personal academic website of **Yue Li, Ph.D.**, served at
 | `images/class-undergrads.jpg` | Photo with undergraduate students (1600×900) | Teaching, beside the philosophy |
 | `images/headshot-original.jpg` | Full-size original headshot | No |
 | `images/teaching.jpg` | Teaching photo from the old site | No |
-| `tutorials/coms930/` | COMS 930 tutorials page (`index.html`), each tutorial as a readable `.html` plus its source (`.Rmd` or `.ipynb`) | Teaching → Tutorials, and the COMS 930 row in the course table |
+| `tutorials/coms930/` | COMS 930 tutorial site built with Quarto (sidebar, search), plus the downloadable `.Rmd` and `.ipynb` files. Generated; don't edit by hand | Teaching → COMS 930 tutorials, and the COMS 930 row in the course table |
+| `tutorials/coms930-src/` | Source of the tutorial site (`_quarto.yml`, pages, theme). Edit here, then run `quarto render`; see its `README.md` | No |
 | `images/fig-*.jpg`, `images/fig-*.png` | Figures from the three "Selected work" papers (semantic similarity, EPPM, social signatures) | No (could illustrate Selected work) |
 
 ## Page structure (in `index.html`)
@@ -35,9 +36,10 @@ This repository is the personal academic website of **Yue Li, Ph.D.**, served at
 | Contact | `<footer id="contact">` | Contact links |
 
 ## Adding a tutorial
-- R Markdown: knit to HTML in RStudio and add both the `.html` and the `.Rmd` to the course folder (for example `tutorials/coms930/`).
-- Colab: download the notebook (File → Download → .ipynb), add it to the folder, and add a readable copy made with `jupyter nbconvert --to html`. The "Open in Colab" link is `https://colab.research.google.com/github/yueliosu/yueliphd.net/blob/main/tutorials/coms930/NAME.ipynb`.
-- Add a row to the course folder's `index.html` with Read / Open in Colab / Download links. Before publishing, remove API keys, personal file paths and student information, and credit any tutorial you adapted.
+The COMS 930 tutorials are a small Quarto site. Edit the source in `tutorials/coms930-src/`, run `quarto render` there (install with `pip install quarto-cli`), and commit both `tutorials/coms930-src/` and the rebuilt `tutorials/coms930/`. Step-by-step instructions are in `tutorials/coms930-src/README.md`.
+- Every tutorial page has Open in Colab / Download buttons at the top. "Open in Colab" links use `https://colab.research.google.com/github/yueliosu/yueliphd.net/blob/main/tutorials/coms930/NAME.ipynb`.
+- Also list a new tutorial in the "COMS 930 tutorials" block of the Teaching section in `index.html`.
+- Before publishing, remove API keys, personal file paths and student information, and credit any tutorial you adapted.
 
 ## Conventions
 - Citations are in APA 7 style, newest first. Put Yue's name in `<b>` and journal names (with volume) in `<i>`. Link DOIs as `https://doi.org/...`.
