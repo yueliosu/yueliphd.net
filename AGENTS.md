@@ -52,7 +52,6 @@ The COMS 930 tutorials are a small Quarto site. Edit the source in `tutorials/co
 
 ## Open to-do items (as of November 2026)
 1. **Update content from the current CV.** The content was copied from the old Wix site and stops at September 2024. Add publications, presentations, grants and University of Kansas courses since then, and replace `files/Yue-Li-CV.pdf`.
-2. **Add an email address** in the Contact section once Yue chooses one.
-3. **Check two teaching-assistant entries.** COM 257 (Spring 2015) and COM 230 (Fall 2014) are listed under NC State. The old Wix site said Ohio State, but the dates and course numbers suggest NC State.
-4. **Update the teaching statement.** It says "six years of college-level teaching," which is probably out of date.
-5. **Optional:** use the research figures in `images/` to illustrate the "Selected work" articles.
+2. **Check two teaching-assistant entries.** COM 257 (Spring 2015) and COM 230 (Fall 2014) are listed under NC State. The old Wix site said Ohio State, but the dates and course numbers suggest NC State.
+3. **Update the teaching statement.** It says "six years of college-level teaching," which is probably out of date.
+4. **Optional:** use the research figures in `images/` to illustrate the "Selected work" articles.
