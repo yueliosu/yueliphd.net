@@ -15,7 +15,7 @@ This repository is the personal academic website of **Yue Li, Ph.D.**, served at
 | `files/Yue-Li-CV.pdf` | CV, updated September 2024. Replace it with the current CV under the same name so the links keep working, and update the "CV last updated" note in the CV section. | Hero and CV buttons |
 | `files/portfolio.pdf` | Advertising photography and graphic design portfolio from undergrad | CV section |
 | `files/syllabus-COMM*.pdf` | Ohio State syllabi (COMM 2367, 3160, 3163, 3444, 3558, 3628) | Teaching table |
-| `files/syllabus-COMS*.pdf` | University of Kansas syllabi: COMS 930 (Spring 2026), COMS 356 (Fall 2025), COMS 320 (Spring 2026). To post a newer one, upload it under the same name and update the term in the link text | Teaching table |
+| `files/syllabus-COMS*.pdf` | University of Kansas syllabi: COMS 930 (Spring 2026), COMS 356 (Fall 2025), COMS 320 (Spring 2026). To post a newer one, upload it under the same name; the link just says "Syllabus" | Teaching table |
 | `images/headshot.jpg` | Square 800×800 crop of the headshot | Hero, beside the name |
 | `images/team-ice-cream.jpg`, `images/team-dinner.jpg` | Team outing photos (1600×1200) | Research → Team |
 | `images/class-undergrads.jpg` | Photo with undergraduate students (1600×900) | Teaching, beside the philosophy |
