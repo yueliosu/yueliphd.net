@@ -88,7 +88,8 @@ details p{max-width:70ch;color:var(--muted);font-size:16px}
 .photo{margin:0}
 .photo img{display:block;width:100%;height:auto;border-radius:14px}
 .photo figcaption{font-size:14px;color:var(--muted);margin-top:10px}
-.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px 32px}
+.team{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),340px));gap:24px 32px}
+.photo .who{display:block;margin-top:4px;color:var(--ink)}
 
 /* publications */
 .pubs{list-style:none;padding:0;margin:0}
@@ -243,8 +244,8 @@ blockquote::before{content:"\201C";display:block;font-size:48px;line-height:.7;c
 
     <h3>Team</h3>
     <div class="team">
-      <figure class="photo"><img src="images/team-ice-cream.jpg" alt="Yue Li and team members sharing ice cream at a table in an ice cream shop" width="1600" height="1200" loading="lazy"><figcaption>Ice cream with the team in Lawrence, Kansas</figcaption></figure>
-      <figure class="photo"><img src="images/team-dinner.jpg" alt="Yue Li and team members at dinner in a restaurant" width="1600" height="1200" loading="lazy"><figcaption>Team dinner</figcaption></figure>
+      <figure class="photo"><img src="images/team-ice-cream.jpg" alt="From left, Yue Li, Abigail Butler and Ned Gidley sharing ice cream at a table in an ice cream shop" width="1600" height="1200" loading="lazy"><figcaption>Ice cream with the team in Lawrence, Kansas<span class="who">From left: Dr. Yue Li; Abigail Butler, M.A. student; Ned Gidley, Ph.D. candidate</span></figcaption></figure>
+      <figure class="photo"><img src="images/team-dinner.jpg" alt="From left, Yue Li, Abigail Butler, Nathan Davis and Ned Gidley at dinner in a restaurant" width="1600" height="1200" loading="lazy"><figcaption>Team dinner<span class="who">From left: Dr. Yue Li; Abigail Butler, M.A. student; Nathan Davis, Ph.D. candidate; Ned Gidley, Ph.D. candidate</span></figcaption></figure>
     </div>
   </div>
 </section>
