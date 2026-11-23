@@ -54,5 +54,4 @@ The COMS 930 tutorials are a small Quarto site. Edit the source in `tutorials/co
 
 ## Open to-do items (as of November 2026)
 1. **Finish updating from the current CV.** Publications, conference presentations, courses and grants were updated from Yue's December 2026 working CV on November 22, 2026. The research section was reorganized into four research lines on November 24, 2026. Still to do once her CV is final: the appointments, and replacing `files/Yue-Li-CV.pdf`.
-2. **Update the teaching statement.** It says "six years of college-level teaching," which is probably out of date.
-3. **Optional:** use the research figures in `images/` to illustrate the research lines.
+2. **Optional:** use the research figures in `images/` to illustrate the research lines.
