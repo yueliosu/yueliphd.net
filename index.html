@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Yue Li, Ph.D.</title>
-<meta name="description" content="Yue Li is an assistant professor of communication studies at the University of Kansas. Her research uses computational methods to study how health information and misinformation spread on social media and how they shape public perceptions and behaviors.">
+<meta name="description" content="Yue Li is an assistant professor of communication studies at the University of Kansas. Her research examines how communication environments shape public understanding of public health policies, and develops and tests strategic communication involving generative AI to address false and misleading information about these policies.">
 <link rel="canonical" href="https://yueliphd.net/">
 <meta property="og:title" content="Yue Li, Ph.D.">
-<meta property="og:description" content="Assistant Professor of Communication Studies, University of Kansas. Research on health (mis)information, social networks, and computational methods.">
+<meta property="og:description" content="Assistant Professor of Communication Studies, University of Kansas. Research on public health policy communication, AI-mediated strategic communication, and theory-driven computational methods.">
 <meta property="og:url" content="https://yueliphd.net/">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232b2150'/%3E%3Cpath d='M9 22 16 10l7 12' stroke='%23cbb8ff' stroke-width='2' fill='none'/%3E%3Ccircle cx='16' cy='10' r='3' fill='%23ff94bb'/%3E%3Ccircle cx='9' cy='22' r='2.5' fill='%238ec5ff'/%3E%3Ccircle cx='23' cy='22' r='2.5' fill='%238ec5ff'/%3E%3C/svg%3E">
@@ -68,19 +68,26 @@ h1{font-size:clamp(64px,9.5vw,128px);letter-spacing:-.02em;margin-left:-.04em}
 @keyframes draw{to{stroke-dashoffset:0}}@keyframes pop{to{opacity:1}}
 
 /* research */
-.areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:36px 48px;border-top:1px solid var(--rule);padding-top:32px}
-.area svg{width:56px;height:56px;display:block}
-.area h3{margin:16px 0 8px;font-size:20px;font-weight:500;line-height:1.3}
-.area p{color:var(--muted);margin:0}
 .methods{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px 56px;margin-top:64px}
+.approach-row{margin-top:0;border-top:1px solid var(--rule);padding-top:32px}
+.approach{font-size:clamp(20px,2.1vw,24px);line-height:1.45;color:var(--ink);margin:0;padding-left:20px;border-left:3px solid var(--purple);text-wrap:pretty}
+.line{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:20px 56px;border-top:1px solid var(--rule);padding:40px 0}
+.approach-row+.line{margin-top:56px}
+.line-head svg{width:56px;height:56px;display:block}
+.line .num{font-size:14px;font-weight:600;letter-spacing:.08em;color:var(--muted);margin:14px 0 4px}
+.line h3{margin:0 0 10px;font-size:22px;font-weight:500;line-height:1.3;text-wrap:balance}
+.line .desc{color:var(--muted);margin:0}
+.line .kind{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
+.line .kind:not(:first-child){margin-top:28px}
+.pubs.rl li{padding:12px 0;font-size:16px}
+.wip{list-style:none;padding:0;margin:0}
+.wip li{padding:12px 0;border-top:1px solid var(--rule);font-size:16px}
+.note{display:block;color:var(--muted);font-size:15px;margin-top:6px}
+.status{display:inline-block;font-size:12.5px;font-weight:600;line-height:1.3;padding:3px 10px;border-radius:999px;border:1px solid color-mix(in srgb,var(--purple) 45%,transparent);color:var(--purple);background:color-mix(in srgb,var(--purple) 8%,transparent);vertical-align:1px}
+.status.ica{border-color:color-mix(in srgb,var(--pink) 50%,transparent);color:#b02a63;background:color-mix(in srgb,var(--pink) 8%,transparent)}
+.rl-note{margin:12px 0 0}
 .tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:8px 0 20px}
 .tags li{border:1px solid var(--rule);border-radius:999px;padding:4px 13px;font-size:14px}
-.work{display:grid;grid-template-columns:10em minmax(0,1fr);gap:8px 40px;border-top:1px solid var(--rule);padding:30px 0}
-.work h4{font-size:20px;font-weight:500;line-height:1.35;margin:0 0 6px;text-wrap:balance}
-.work h4 a{color:var(--ink);text-decoration-color:var(--rule)}
-.work h4 a:hover{text-decoration-color:var(--link)}
-.work .sum{margin:12px 0 8px;max-width:68ch}
-.how{font-size:14px;color:var(--muted);margin:0}
 details{margin-top:8px}
 summary{cursor:pointer;display:inline-flex;align-items:center;min-height:44px;color:var(--link);font-size:16px}
 details p{max-width:70ch;color:var(--muted);font-size:16px}
@@ -137,7 +144,7 @@ blockquote::before{content:"\201C";display:block;font-size:48px;line-height:.7;c
 .contact li a span{color:var(--muted);font-size:14px}
 .foot{margin-top:56px;font-size:14px;color:var(--muted)}
 
-@media(max-width:760px){.methods,.teach,.cvcols,.contact{grid-template-columns:minmax(0,1fr)}.cvcols>div+div{margin-top:40px}.work{grid-template-columns:minmax(0,1fr)}.legend{justify-content:flex-start}}
+@media(max-width:760px){.methods,.teach,.cvcols,.contact{grid-template-columns:minmax(0,1fr)}.cvcols>div+div{margin-top:40px}.line{grid-template-columns:minmax(0,1fr)}.legend{justify-content:flex-start}}
 @media(max-width:600px){.intro{grid-template-columns:104px minmax(0,1fr);grid-template-areas:"photo name" "lede lede";column-gap:18px;align-items:center}.headshot{border-radius:16px}h1{font-size:56px}.lede{margin-top:12px}table{font-size:15px}.stack thead{display:none}.stack tr{display:grid;padding-block:10px;border-bottom:1px solid var(--rule)}.stack td{display:flow-root;border:0;padding:3px 0;padding-inline-start:7em;text-align:start;white-space:normal}.stack td::before{content:attr(data-l);float:inline-start;width:6.5em;margin-inline-start:-7em;color:var(--muted);font-weight:400;font-size:14px}.stack td:empty{display:none}.pubs li,.tl li{grid-template-columns:minmax(0,1fr)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.go,.pop{animation:none;opacity:1;stroke-dashoffset:0}}
 </style>
@@ -170,7 +177,7 @@ blockquote::before{content:"\201C";display:block;font-size:48px;line-height:.7;c
       <h1>Dr. Yue Li</h1>
       <div class="lede">
         <p class="role">Assistant Professor, Department of Communication Studies, University of Kansas</p>
-        <p>I study how health-related information and misinformation spread across people and news media on social media, and how they shape what the public believes and does over time.</p>
+        <p>My research examines how communication environments shape public understanding of public health policies, including their implications for policy attitudes and behaviors. I develop and test strategic communication involving emerging technologies, particularly generative AI, to address false and misleading information about these policies.</p>
         <div class="btns">
           <a class="btn primary" href="files/Yue-Li-CV.pdf">Download CV</a>
           <a class="btn" href="https://scholar.google.com/citations?user=ZIJgPwMAAAAJ&amp;hl=en">Google Scholar</a>
@@ -185,65 +192,109 @@ blockquote::before{content:"\201C";display:block;font-size:48px;line-height:.7;c
 <section class="band" id="research">
   <div class="wrap">
     <h2>Research</h2>
-    <div class="areas">
-      <div class="area">
-        <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 28 30 14M12 28l18 14M30 14l14-2M30 14l12 12M30 42l12-16M30 42l14 4"/><circle cx="12" cy="28" r="5" fill="var(--pink)" stroke="none"/><circle cx="30" cy="14" r="3.5" fill="currentColor"/><circle cx="30" cy="42" r="3.5" fill="currentColor"/><circle cx="44" cy="12" r="2.5"/><circle cx="42" cy="26" r="2.5"/><circle cx="44" cy="46" r="2.5"/></svg>
-        <h3>How health (mis)information spreads</h3>
-        <p>The diffusion of health-related information and misinformation across individuals and news media on social media.</p>
-      </div>
-      <div class="area">
-        <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 46h44"/><path d="M6 34c5 0 6-14 11-14s6 18 11 18 6-26 11-26 6 16 11 16" stroke="var(--pink)" stroke-width="2"/><path d="M6 40c6 0 8-6 14-6s8 4 14 4 8-8 16-8" opacity=".55"/></svg>
-        <h3>Strategic communication and public health policy</h3>
-        <p>The dynamic processes of strategic communication and media coverage of public health policies.</p>
-      </div>
-      <div class="area">
-        <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 46h44"/><rect x="9" y="32" width="8" height="14"/><rect x="24" y="24" width="8" height="22"/><rect x="39" y="14" width="8" height="32" fill="var(--pink)" stroke="none"/><path d="M13 26 28 18l15-10" stroke-dasharray="2 3"/></svg>
-        <h3>Effects on perceptions and behavior over time</h3>
-        <p>How people process health-related (mis)information, and its longitudinal effects on their health-related perceptions and behaviors.</p>
-      </div>
-    </div>
-
-    <div class="methods">
-      <p>To answer these questions, I apply theory-driven computational methods, including social network analysis, natural language processing, and machine learning, to "big data": text, social network data, longitudinal surveys, and digital trace data from social media. I also use advanced inferential analyses, such as inferential network analysis, longitudinal panel analysis, and time-series analysis, to explain communication processes.</p>
+    <div class="methods approach-row">
+      <p class="approach">My theory-driven research integrates computational methods, including natural language processing, machine learning, and social network analysis, with longitudinal and experimental research. I use these approaches to investigate communication processes, examine relationships over time, and evaluate strategic interventions.</p>
       <div>
         <div class="meta">Methods</div>
-        <ul class="tags"><li>Social network analysis</li><li>Natural language processing</li><li>Machine learning</li><li>Inferential network models</li><li>Longitudinal panel analysis</li><li>Time-series analysis</li></ul>
+        <ul class="tags"><li>Natural language processing</li><li>Machine learning</li><li>Social network analysis</li><li>Inferential network models</li><li>Longitudinal panel analysis</li><li>Time-series analysis</li><li>Experiments</li></ul>
         <div class="meta">Software</div>
         <ul class="tags"><li>R</li><li>Python</li><li>Stata</li><li>SAS</li><li>Mplus</li><li>SPSS</li></ul>
       </div>
     </div>
 
-    <h3>Selected work</h3>
-    <article class="work">
-      <div class="meta">2023<br><i>Human Communication Research</i></div>
-      <div>
-        <h4><a href="https://doi.org/10.1093/hcr/hqac020">Examining semantic (dis)similarity in news through news organizations' ideological similarity, similarity in truthfulness, and public engagement on social media: A network approach</a></h4>
-        <div class="meta">Li, Y., &amp; Bond, R. M.</div>
-        <p class="sum">Using Facebook and Twitter user logs and ten months of news text from more than 100 news organizations, we find that outlets closer in ideology and truthfulness publish more semantically similar news, while articles that draw more public engagement on social media are less similar.</p>
-        <p class="how">Methods: "cultural networks" of news organizations (Bail, 2016) built with the <a href="https://github.com/cbail/textnets">textnets</a> package in R; Additive and Multiplicative Effects network models (Hoff, 2021) with the <a href="https://pdhoff.github.io/amen/">amen</a> package in R.</p>
-        <details><summary>Abstract</summary><p>The rise of homogenization and polarization in the news may inhibit individuals' understanding of an issue and the functioning of a democratic society. This study applies a network approach to understanding patterns of semantic similarity and divergence across news coverage. Specifically, we focus on how (a) inter-organizational networks based on media ideology, (b) inter-organizational networks based on news truthfulness, and (c) public engagement that news articles received on social media may affect semantic similarity in the news. We use large-scale user logs data on social media platforms (i.e., Facebook and Twitter) and news text data from more than 100 news organizations over 10 months to examine the three potential processes. Our results show that the similarity between news organizations in terms of media ideology and news truthfulness is positively associated with semantic similarity, whereas the public engagement that news articles received on social media is negatively associated with semantic similarity. Our study contributes to theory development in mass communication by shifting to a network paradigm that connects news organizations, news content, and news audiences. We demonstrate how scholars across communication disciplines may collaborate to integrate distinct theories, connect multiple levels, and link otherwise separate dimensions. Methodologically, we demonstrate how synchronizing network science with natural language processing and combining social media log data with text data can help to answer research questions that communication scholars are interested in. The findings' implications for news polarization are discussed.</p></details>
+    <article class="line" id="line-policy">
+      <div class="line-head">
+        <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 46h44"/><rect x="9" y="32" width="8" height="14"/><rect x="24" y="24" width="8" height="22"/><rect x="39" y="14" width="8" height="32" fill="var(--pink)" stroke="none"/><path d="M13 26 28 18l15-10" stroke-dasharray="2 3"/></svg>
+        <p class="num">01</p>
+        <h3>Message design and mechanisms of public health policy communication</h3>
+        <p class="desc">How communication about public health policies relates to beliefs, attitudes, and behaviors, and the psychological processes that may explain these relationships.</p>
+      </div>
+      <div class="line-works">
+        <p class="kind">Published</p>
+        <ol class="pubs rl">
+          <li><span class="yr">2026</span><span>Parmet, T.*, <b>Li, Y.</b>, Cappella, J., Scherer, L. D., Waters, E. A., &amp; Housten, A. J. Media reporting of the 2024 US Preventive Services Task Force mammography guideline update. <i>JAMA Network Open, 9</i>(3), e260040. <a href="https://doi.org/10.1001/jamanetworkopen.2026.0040">doi.org/10.1001/jamanetworkopen.2026.0040</a></span></li>
+          <li><span class="yr">2023</span><span><b>Li, Y.</b>, Wang, Z., &amp; Li, Q. Presidential communication during the pandemic: A longitudinal examination of its relationship with partisan perceptions and behaviors in the United States. <i>Human Communication Research, 49</i>(4), 433–447. <a href="https://doi.org/10.1093/hcr/hqad025">doi.org/10.1093/hcr/hqad025</a>
+            <details><summary>Abstract</summary><p>Partisanship played a key role in shaping individuals' responses to the COVID-19 pandemic in the United States. The current project applies the extended parallel processing model (EPPM) to examine how the content features of White House press conferences were associated with the partisan gap in perceptions and behavior during the early stage of the pandemic. Using supervised machine learning, Study 1 analyzes the White House press conferences regarding the pandemic during 2020. The results demonstrate that the White House focused on efficacy but included minimal threat information. Study 2 uses the threat and efficacy information in White House press conferences to predict perceived threat and efficacy as well as self-quarantine behavior measured by longitudinal surveys using nationally representative samples of U.S. adults. Time-series analysis shows that an increase of threat information from the White House was associated with a subsequent decrease in the partisan gap between Democrats and Republicans on perceived threat and self-quarantine behavior by increasing perceived threat and self-quarantine behavior among Republicans. This study contributes to presidential communication research by systematically examining specific message features and linking them to public perceptions and behaviors in the context of a public health crisis. The study also extends the EPPM to a dynamic model, estimating the asymmetric effects and self-continuity of positive (i.e., efficacy) and negative (i.e., threat) information on perceptions and behaviors.</p></details></span></li>
+          <li><span class="yr">2023</span><span>Cappella, J. N., &amp; <b>Li, Y.</b> Principles of effective message design: A review and model of content and format features. <i>Asian Communication Research, 20</i>(3), 147–174. <a href="https://doi.org/10.20879/acr.2023.20.023">doi.org/10.20879/acr.2023.20.023</a>
+            <span class="note">A theoretical foundation for understanding how content and format features influence message effectiveness.</span></span></li>
+        </ol>
+        <p class="kind">Work in progress and submissions</p>
+        <ul class="wip">
+          <li><i>Belief Sensitivity and Policy Support in False and Misleading Information Environments.</i> <span class="status ica">Submitted to ICA 2027 · work-in-progress paper</span></li>
+        </ul>
       </div>
     </article>
-    <article class="work">
-      <div class="meta">2023<br><i>Human Communication Research</i></div>
-      <div>
-        <h4><a href="https://doi.org/10.1093/hcr/hqad025">Presidential communication during the pandemic: A longitudinal examination of its relationship with partisan perceptions and behaviors in the United States</a></h4>
-        <div class="meta">Li, Y., Wang, Z., &amp; Li, Q.</div>
-        <p class="sum">Machine-learning content analysis of the White House's 2020 pandemic press conferences, linked to longitudinal surveys of nationally representative samples of U.S. adults, shows that more threat information was followed by a smaller partisan gap in perceived threat and self-quarantine, driven by increases among Republicans.</p>
-        <p class="how">Methods: supervised machine learning; vector autoregressive models of the message system and the perception-and-behavior system; a dynamic extension of the extended parallel process model (EPPM).</p>
-        <details><summary>Abstract</summary><p>Partisanship played a key role in shaping individuals' responses to the COVID-19 pandemic in the United States. The current project applies the extended parallel processing model (EPPM) to examine how the content features of White House press conferences were associated with the partisan gap in perceptions and behavior during the early stage of the pandemic. Using supervised machine learning, Study 1 analyzes the White House press conferences regarding the pandemic during 2020. The results demonstrate that the White House focused on efficacy but included minimal threat information. Study 2 uses the threat and efficacy information in White House press conferences to predict perceived threat and efficacy as well as self-quarantine behavior measured by longitudinal surveys using nationally representative samples of U.S. adults. Time-series analysis shows that an increase of threat information from the White House was associated with a subsequent decrease in the partisan gap between Democrats and Republicans on perceived threat and self-quarantine behavior by increasing perceived threat and self-quarantine behavior among Republicans. This study contributes to presidential communication research by systematically examining specific message features and linking them to public perceptions and behaviors in the context of a public health crisis. The study also extends the EPPM to a dynamic model, estimating the asymmetric effects and self-continuity of positive (i.e., efficacy) and negative (i.e., threat) information on perceptions and behaviors.</p></details>
+
+    <article class="line" id="line-ai">
+      <div class="line-head">
+        <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 14h28a4 4 0 0 1 4 4v15a4 4 0 0 1-4 4H23l-8 7v-7H9a4 4 0 0 1-4-4V18a4 4 0 0 1 4-4z"/><path d="M12 22h20M12 28h14" opacity=".55"/><path d="M45 5l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="var(--pink)" stroke="none"/></svg>
+        <p class="num">02</p>
+        <h3>Human-centered approaches to AI-mediated communication and misinformation intervention</h3>
+        <p class="desc">Developing and evaluating theory-driven, AI-generated strategic communication to address false and misleading information, alongside collaborative research on trust in AI.</p>
+      </div>
+      <div class="line-works">
+        <p class="kind">Published</p>
+        <ol class="pubs rl">
+          <li><span class="yr">2026</span><span><b>Li, Y.</b> From problem to practice: A conceptual framework and action agenda for health misinformation resilience. <i>Journal of Applied Communication Research, 54</i>(1), 110–116. <a href="https://doi.org/10.1080/00909882.2025.2573952">doi.org/10.1080/00909882.2025.2573952</a></span></li>
+          <li><span class="yr">2026</span><span>Xu, S., Gong, Z., <b>Li, Y.</b>, Zhao, Y., &amp; Ahsan, A. Building appropriate trust in artificial intelligence: Examining a dynamic trust calibration model and an intervention. <i>International Journal of Human–Computer Interaction</i>, 1–21. <a href="https://doi.org/10.1080/10447318.2026.2719173">doi.org/10.1080/10447318.2026.2719173</a></span></li>
+          <li><span class="yr">2026</span><span>Xu, S., Gong, Z., <b>Li, Y.</b>, Zhao, Y.*, &amp; Huang, S.* The trust cost of AI errors: Examining cognitive and affective trust dynamics in human-AI collaboration. <i>International Journal of Human–Computer Interaction, 42</i>(10), 7666–7681. <a href="https://doi.org/10.1080/10447318.2025.2560522">doi.org/10.1080/10447318.2025.2560522</a></span></li>
+        </ol>
+        <p class="kind">Work in progress and submissions</p>
+        <ul class="wip">
+          <li><i>Beyond Truth and Intent: A Rhetorical-Mechanism Typology of False and Misleading Communication.</i> <span class="status">In progress</span>
+            <span class="note">A conceptual foundation for identifying misleading techniques and designing interventions.</span></li>
+          <li><i>Can AI Teach Persuasion Knowledge or Create an Illusion of Understanding? Comparing Human and AI Prebunking Across Rhetorical Tasks.</i> <span class="status">In progress</span>
+            <span class="note">Compares human- and AI-generated prebunking across rhetorical tasks in terms of perceived mind-modeling, persuasion-knowledge acquisition, and metacognitive confidence. Perceived mind-modeling concerns whether an explanation appears to understand why readers find a message persuasive or misleading; it does not establish the AI's actual understanding.</span></li>
+          <li><i>Knowing the Facts or Seeing Through the Rhetorical Techniques? Two Routes to Resisting Misleading Social Media Posts in Public Health.</i> <span class="status">In progress</span></li>
+        </ul>
       </div>
     </article>
-    <article class="work">
-      <div class="meta">2022<br><i>Applied Network Science</i></div>
-      <div>
-        <h4><a href="https://doi.org/10.1007/s41109-022-00448-0">Evidence of the persistence and consistency of social signatures</a></h4>
-        <div class="meta">Li, Y., &amp; Bond, R. M.</div>
-        <p class="sum">Phone-call, text-message, and in-person interaction data from more than 700 university students show that even as people's contacts turn over, the way they distribute communication across their networks stays persistent over time and consistent across modes, and mediated networks are more stable than in-person ones.</p>
-        <p class="how">Methods: Jaccard index and Jensen–Shannon distance to measure the persistence and consistency of social signatures.</p>
-        <details><summary>Abstract</summary><p>Human social networks are composed of multiple dynamic and overlapping communication networks, in which membership changes over time. However, less well understood are whether and how our communication patterns are similar or different over time and across various modes of communication. Here, we use data on the frequency of phone calls, text messages, and in-person interactions to examine the social signatures of more than 700 students in a university setting. Our analysis shows that although there is substantial turnover in participants' networks, participants' social signatures are persistent across time and consistent across communication modes. Further, we find that communication networks that are mediated via phone calls or text messages are more stable than are in-person networks. Our results show that, likely due to limitations in cognitive and emotional resources, people maintain networks of relatively stable size and structure their communication within those networks in predictable patterns. Our findings may help with formalizing social network theories, explaining individual-level attitudes and behaviors and aggregate-level social phenomena, and making predictions and detecting abnormalities in applied fields.</p></details>
+
+    <article class="line" id="line-networks">
+      <div class="line-head">
+        <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 28 30 14M12 28l18 14M30 14l14-2M30 14l12 12M30 42l12-16M30 42l14 4"/><circle cx="12" cy="28" r="5" fill="var(--pink)" stroke="none"/><circle cx="30" cy="14" r="3.5" fill="currentColor"/><circle cx="30" cy="42" r="3.5" fill="currentColor"/><circle cx="44" cy="12" r="2.5"/><circle cx="42" cy="26" r="2.5"/><circle cx="44" cy="46" r="2.5"/></svg>
+        <p class="num">03</p>
+        <h3>Interpersonal communication networks and social influence</h3>
+        <p class="desc">How interpersonal networks are organized, how they change over time, and how they relate to attitudes and communication patterns.</p>
+      </div>
+      <div class="line-works">
+        <p class="kind">Published</p>
+        <ol class="pubs rl">
+          <li><span class="yr">2023</span><span><b>Li, Y.</b>, Gee, W., Jin, K., &amp; Bond, R. M. Examining homophily, language coordination, and analytical thinking in web-based conversations about vaccines on Reddit: Study using deep neural network language models and computer-assisted conversational analyses. <i>Journal of Medical Internet Research, 25</i>, e41882. <a href="https://doi.org/10.2196/41882">doi.org/10.2196/41882</a></span></li>
+          <li><span class="yr">2022</span><span><b>Li, Y.</b>, &amp; Bond, R. M. Evidence of the persistence and consistency of social signatures. <i>Applied Network Science, 7</i>(1), 1–19. <a href="https://doi.org/10.1007/s41109-022-00448-0">doi.org/10.1007/s41109-022-00448-0</a>
+            <details><summary>Abstract</summary><p>Human social networks are composed of multiple dynamic and overlapping communication networks, in which membership changes over time. However, less well understood are whether and how our communication patterns are similar or different over time and across various modes of communication. Here, we use data on the frequency of phone calls, text messages, and in-person interactions to examine the social signatures of more than 700 students in a university setting. Our analysis shows that although there is substantial turnover in participants' networks, participants' social signatures are persistent across time and consistent across communication modes. Further, we find that communication networks that are mediated via phone calls or text messages are more stable than are in-person networks. Our results show that, likely due to limitations in cognitive and emotional resources, people maintain networks of relatively stable size and structure their communication within those networks in predictable patterns. Our findings may help with formalizing social network theories, explaining individual-level attitudes and behaviors and aggregate-level social phenomena, and making predictions and detecting abnormalities in applied fields.</p></details></span></li>
+        </ol>
+        <p class="kind">Work in progress and submissions</p>
+        <ul class="wip">
+          <li><b>Li, Y.</b>, &amp; Qin, J.* <i>Cumulative Effects of Egocentric Networks on Attitudinal Extremity about Politicized Health Issues.</i> <span class="status ica">Submitted to ICA 2027</span></li>
+        </ul>
       </div>
     </article>
+
+    <article class="line" id="line-diffusion">
+      <div class="line-head">
+        <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 46h44"/><path d="M6 34c5 0 6-14 11-14s6 18 11 18 6-26 11-26 6 16 11 16" stroke="var(--pink)" stroke-width="2"/><path d="M6 40c6 0 8-6 14-6s8 4 14 4 8-8 16-8" opacity=".55"/></svg>
+        <p class="num">04</p>
+        <h3>Information diffusion and digital media ecosystems</h3>
+        <p class="desc">How message characteristics, network structures, and audience engagement relate to the circulation, transformation, and organization of information.</p>
+      </div>
+      <div class="line-works">
+        <p class="kind">Published</p>
+        <ol class="pubs rl">
+          <li><span class="yr">2023</span><span><b>Li, Y.</b>, &amp; Bond, R. M. Examining semantic (dis)similarity in news through news organizations' ideological similarity, similarity in truthfulness, and public engagement on social media: A network approach. <i>Human Communication Research, 49</i>(1), 47–60. <a href="https://doi.org/10.1093/hcr/hqac020">doi.org/10.1093/hcr/hqac020</a>
+            <details><summary>Abstract</summary><p>The rise of homogenization and polarization in the news may inhibit individuals' understanding of an issue and the functioning of a democratic society. This study applies a network approach to understanding patterns of semantic similarity and divergence across news coverage. Specifically, we focus on how (a) inter-organizational networks based on media ideology, (b) inter-organizational networks based on news truthfulness, and (c) public engagement that news articles received on social media may affect semantic similarity in the news. We use large-scale user logs data on social media platforms (i.e., Facebook and Twitter) and news text data from more than 100 news organizations over 10 months to examine the three potential processes. Our results show that the similarity between news organizations in terms of media ideology and news truthfulness is positively associated with semantic similarity, whereas the public engagement that news articles received on social media is negatively associated with semantic similarity. Our study contributes to theory development in mass communication by shifting to a network paradigm that connects news organizations, news content, and news audiences. We demonstrate how scholars across communication disciplines may collaborate to integrate distinct theories, connect multiple levels, and link otherwise separate dimensions. Methodologically, we demonstrate how synchronizing network science with natural language processing and combining social media log data with text data can help to answer research questions that communication scholars are interested in. The findings' implications for news polarization are discussed.</p></details></span></li>
+        </ol>
+        <p class="kind">Work in progress and submissions</p>
+        <ul class="wip">
+          <li><b>Li, Y.</b>, &amp; Jin, K. <i>The staying power of misinformation: The differential fidelity of information with different veracity in the diffusion landscape.</i> <span class="status">Under review</span>
+            <span class="note">From my dissertation on the virality and fidelity of vaccine information with different levels of veracity.</span></li>
+          <li><b>Li, Y.</b>, &amp; Jin, K. <i>Unveiling virality: In the context of COVID-19 vaccines, accurate information triumphs over misinformation, driven by network clustering and threat information.</i> <span class="status">Under review</span>
+            <span class="note">From my dissertation on the virality and fidelity of vaccine information with different levels of veracity.</span></li>
+          <li>Xue, H., <b>Li, Y.</b>, Lyons, B. A., &amp; King, A. J. <i>The Disconnect Between Online #MAHA Discourse and the Make America Healthy Again Campaign's Stated Priorities Across Seven Online Sources.</i> <span class="status">Under review (minor revision)</span></li>
+        </ul>
+      </div>
+    </article>
+    <p class="pubnote rl-note">* Graduate student collaborator at the time of the study</p>
 
     <h3>Team</h3>
     <div class="team">
