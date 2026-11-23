@@ -23,14 +23,14 @@ This repository is the personal academic website of **Yue Li, Ph.D.**, served at
 | `images/teaching.jpg` | Teaching photo from the old site | No |
 | `tutorials/coms930/` | COMS 930 tutorial site built with Quarto (sidebar, search), plus the downloadable `.Rmd` and `.ipynb` files. Generated; don't edit by hand | Teaching → COMS 930 tutorials, and the COMS 930 row in the course table |
 | `tutorials/coms930-src/` | Source of the tutorial site (`_quarto.yml`, pages, theme). Edit here, then run `quarto render`; see its `README.md` | No |
-| `images/fig-*.jpg`, `images/fig-*.png` | Figures from the three "Selected work" papers (semantic similarity, EPPM, social signatures) | No (could illustrate Selected work) |
+| `images/fig-*.jpg`, `images/fig-*.png` | Figures from three published papers (semantic similarity, EPPM, social signatures) | No (could illustrate the research lines) |
 
 ## Page structure (in `index.html`)
 | Section | Element / id | Notes |
 |---|---|---|
 | Navigation | `<nav class="top">` | Links to the section ids below |
 | Hero | `<header id="top">` | Network illustration (`<svg id="net">`, drawn by the script at the bottom), then the headshot (`img.headshot`) beside the name, title, intro and buttons |
-| Research | `<section id="research">` | Three research areas, methods paragraph and tags, "Selected work" articles with `<details>` abstracts, "Team" photos (`<div class="team">` of `<figure class="photo">`) |
+| Research | `<section id="research">` | Methods statement (`<p class="approach">`) with method and software tags; four research lines (`<article class="line">`), each with an icon, number, title, short description, a "Published" list (`<ol class="pubs rl">`, some with `<details>` abstracts), and either an "ICA 2027 submissions—decisions pending" list (`<ol class="pubs rl pending">`, lines 1, 2 and 4; citations exactly as Yue supplied them, no student markers) or a "Manuscripts under review" list (`<ul class="wip">`, line 3, with an optional `<span class="status">` badge). The lines are, in order: 01 message design and public health policy communication, 02 AI-mediated communication and misinformation intervention, 03 information diffusion and digital media ecosystems, 04 interpersonal networks and social influence; "Team" photos (`<div class="team">` of `<figure class="photo">`). ICA 2027 decisions are due 13 January 2027: then rename the heading and change "decision pending" in each citation (and add accepted papers to "Conference presentations" in Publications). When a paper is published, move it to "Published" and add it to the Publications section too |
 | Publications | `<section id="publications">` | `<ol class="pubs">` lists; each `<li>` is `<span class="yr">YEAR</span><span>citation</span>`; Yue's name in `<b>`. Student collaborators are marked * (graduate) and † (undergraduate), explained in the `<p class="pubnote">` above the lists. Journal articles and conference presentations only; manuscripts under review are not listed |
 | Grants | `<section id="grants">` | Funded internal grants only (Yue's choice), newest first, in the same `<ol class="pubs grants">` format with a wider year column. Don't list unfunded proposals |
 | Teaching | `<section id="teaching">` | Philosophy with the class photo beside it, course tables (`class="stack"` makes them phone-friendly), student evaluation quotes |
@@ -53,6 +53,5 @@ The COMS 930 tutorials are a small Quarto site. Edit the source in `tutorials/co
 - The network illustration script at the bottom of the file is self-contained. Leave it alone unless the task is about the illustration.
 
 ## Open to-do items (as of November 2026)
-1. **Finish updating from the current CV.** Publications, conference presentations, courses and grants were updated from Yue's December 2026 working CV on November 22, 2026. Still to do once her CV is final: the research areas and appointments, and replacing `files/Yue-Li-CV.pdf`.
-2. **Update the teaching statement.** It says "six years of college-level teaching," which is probably out of date.
-3. **Optional:** use the research figures in `images/` to illustrate the "Selected work" articles.
+1. **Finish updating from the current CV.** Publications, conference presentations, courses and grants were updated from Yue's December 2026 working CV on November 22, 2026. The research section was reorganized into four research lines on November 24, 2026. Still to do once her CV is final: the appointments, and replacing `files/Yue-Li-CV.pdf`.
+2. **Optional:** use the research figures in `images/` to illustrate the research lines.
